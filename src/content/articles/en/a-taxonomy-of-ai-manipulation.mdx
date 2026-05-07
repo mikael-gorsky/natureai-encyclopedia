@@ -1,0 +1,156 @@
+---
+lang: en
+translationKey: D.18
+title: A Taxonomy of AI Manipulation
+section: manipulation
+plate: D.18
+order: 18
+summary: A six-cell map of the techniques by which AI alters human decisions — bias exploitation, personalization, affective steering, generative deception, simulated influence, dynamic dark patterns.
+keyTerms:
+  - hypernudge
+  - filter bubble
+  - dark pattern
+  - deepfake
+  - social bot
+  - microtargeting
+seeAlso:
+  - exploiting-cognitive-biases
+  - personalization-and-polarization
+  - deepfakes
+paperSections:
+  - "4.2"
+citations:
+  - id: 23
+    text: "Susser, Roessler & Nissenbaum (2019) and related taxonomies of online manipulation."
+hero:
+  src: /_media/d-18-hero.svg
+  alt: A simple branching tree with six terminal nodes, each labeled with a small Roman numeral — a visual figure for the taxonomy below.
+readingTime: 9
+sourceLang: en
+translationStatus: complete
+draft: false
+lastUpdated: 2026-05-07
+---
+
+The word *manipulation* sits awkwardly in technical writing. It carries an
+accusation; it implies an actor with intent. In the AI context, the actor is
+sometimes a person, sometimes a company, sometimes a model, and sometimes nothing
+identifiable — an emergent effect of optimization for engagement. Gesnot's
+taxonomy in §4.2 does the useful work of separating *technique* from *intent*,
+so the same map can describe an outright propaganda operation and an
+attention-maximizing recommender that "just" promotes whatever provokes the
+strongest reaction.
+
+What follows is that taxonomy, condensed. Six cells. Most real-world cases
+combine more than one.
+
+## I. Exploitation of cognitive biases (hypernudges)
+
+The technique: detect a known psychological bias in a specific user and present
+material that exploits it. The bias menu is well-mapped — confirmation bias,
+anchoring, availability, loss aversion, the framing effect — and AI brings two
+new ingredients. **Detection at scale**: a recommendation system can infer your
+biases from your clicking history, faster and more accurately than you would
+admit them. **Personalized delivery**: the same idea can be packaged six ways,
+and the system serves you the one your bias profile predicts you will accept.
+
+The contemporary phrase is *hypernudge*: a nudge tailored to a single user, in
+real time, by a system that knows them better than they know themselves. The
+nudge concept is Sunstein and Thaler's; the *hyper* is what AI adds.
+
+## II. Algorithmic personalization (personalized filtering)
+
+The technique: select what each user sees from an effectively infinite pool of
+content, by reference to a model of their preferences. Done well, this is helpful
+— recommended films, tailored search results, an inbox sorted by relevance. Done
+at scale, with engagement as the metric, it produces **filter bubbles**: each
+user surrounded by content reinforcing what they already prefer to think,
+isolated from arguments that would unsettle them.
+
+Pariser named the bubble in 2011. A decade and a half later, the phenomenon is
+documented across platforms, well-resourced studies have measured it, and most
+people believe themselves immune. The third part is itself a bias, exploited by
+the first.
+
+## III. Emotional manipulation (affective content)
+
+The technique: time and tune content to the user's affective state, using emotion
+as a multiplier on attention. Algorithms reliably amplify divisive,
+anxiety-inducing, or anger-provoking material because such material drives
+engagement; users return to apps that gave them strong emotions even if those
+emotions were unpleasant. A subtler form: commercial offers placed at moments of
+emotional vulnerability — a junk-food promotion to a user whose typing patterns
+suggest depression, a high-rate loan to a user whose location suggests a payday
+crisis.
+
+The technique was always available to advertisers; what AI changes is the *speed*
+and *granularity* of the targeting.
+
+## IV. Automated disinformation (generative AI)
+
+The technique: produce convincing fake content — text, image, audio, video — at
+volumes and qualities that overwhelm the receiver's capacity to verify. Two
+strands matter most.
+
+**Text**: large language models produce fluent prose at near-zero marginal cost,
+which has already restructured the economics of fake-news production. A single
+operator can run an outlet that, twenty years ago, required a newsroom.
+
+**Audio-visual** (deepfakes): face-swaps, voice clones, fabricated video. By 2024,
+the technical bar for convincing fakes had dropped to consumer hardware. The
+2024 New Hampshire deepfake of a President Biden voice memo — which urged
+Democratic voters to skip a primary — was created by a consultant to *demonstrate*
+the danger and is the canonical example. A real attack would not announce itself.
+
+## V. Simulated social influence (bots and fake agents)
+
+The technique: present AI-controlled accounts as real users, to manufacture an
+appearance of consensus. The mechanism is old (claques, ringers, paid reviews);
+AI scales it. A single operator can run thousands of distinguishable personas,
+each with a plausible posting history, each capable of holding convincing
+conversations.
+
+The cost on the receiving end is not just the false consensus but a slower,
+deeper one: in a world where bots are routine, every conversation acquires a
+small new question — *am I talking to a person?* — that erodes the basic
+intersubjective trust on which public discourse depends.
+
+## VI. Persuasive design (dynamic dark patterns)
+
+The technique: the user interface itself is reshaped, in real time, to push for
+particular actions. *Dark patterns* — the design literature's name for
+deliberately misleading interface choices — become *dynamic* when AI tunes them
+per user.
+
+A worked example from Susser and colleagues: an e-commerce site that raises the
+displayed price when the buyer's phone battery is low, on the model that
+low-battery users are more time-pressured and less likely to comparison-shop.[^23]
+Other forms: pre-checked consent boxes timed to the user's distraction state;
+subscription-cancellation flows that lengthen as the user's emotional reluctance
+to abandon the task is detected.
+
+## The common thread
+
+The six cells share a structural feature: **they amplify intentional influence
+on human behavior while making the influence less detectable.** The key word is
+*detectable*. None of these techniques is unprecedented in kind. What is
+unprecedented is the asymmetry between the producer's awareness of the
+manipulation and the target's. Pre-AI propaganda assumed a vigilant audience and
+worked anyway. AI-era manipulation assumes the audience cannot see it at all.
+
+This is also why the cells combine so easily. A real disinformation campaign uses
+deepfakes (IV), bots to spread them (V), microtargeting of the most receptive
+individuals (II), and content tuned to their cognitive biases (I). The taxonomy
+does not describe disjoint species; it describes ingredients.
+
+## What follows
+
+The next four articles take each of cells I through VI in turn, with the case
+literature: *Exploiting Cognitive Biases* (D.19), *Personalization and Polarization*
+(D.20), *Disinformation at Scale* (D.21), and *Deepfakes* (D.22). Then *Manipulation
+of Perceived Reality* (D.23) considers the deeper question — what happens to
+shared reality when any of the cells, scaled, becomes routine — and *Ethical
+Safeguards* (D.24) sketches the regulatory and design responses currently on the
+table.
+
+[^23]: Susser, Roessler, and Nissenbaum's account of online manipulation, with the dynamic-pricing example.

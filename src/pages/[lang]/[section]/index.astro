@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { locales, sectionOrder, sectionLetter, sectionTitles, type Locale, type SectionId } from '../../../i18n/config';
 import { t } from '../../../i18n';
+import { articleSlug } from '../../../lib/plate';
 
 export async function getStaticPaths() {
   const out = [];
@@ -49,7 +50,7 @@ const fmtDate = (d: Date) => new Intl.DateTimeFormat(dateMap[lang], { year: 'num
         <ol class="catalogue-list">
           {articles.map((a) => (
             <li class="catalogue-row">
-              <a class="catalogue-row-link" href={`/${lang}/${a.data.section}/${a.slug}/`}>
+              <a class="catalogue-row-link" href={`/${lang}/${a.data.section}/${articleSlug(a.slug)}/`}>
                 <span class="catalogue-plate">{a.data.plate}</span>
                 <span class="catalogue-title">{a.data.title}</span>
                 <span class="catalogue-summary">{a.data.summary}</span>

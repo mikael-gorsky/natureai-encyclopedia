@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Plate D.18 — a branching tree with six terminal nodes, each marked with a small Roman numeral.">
+  <defs>
+    <radialGradient id="g" cx="50%" cy="35%" r="85%">
+      <stop offset="0%" stop-color="#EFE7D2" stop-opacity="1"/>
+      <stop offset="60%" stop-color="#E8C7BC" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#F7F5F0" stop-opacity="1"/>
+    </radialGradient>
+    <pattern id="dots" x="0" y="0" width="56" height="56" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#0E0F12" fill-opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1920" height="1080" fill="#F7F5F0"/>
+  <rect width="1920" height="1080" fill="url(#g)"/>
+  <rect width="1920" height="1080" fill="url(#dots)"/>
+
+  <!-- Branching tree, root at top center, six leaves at bottom -->
+  <g stroke="#0E0F12" stroke-width="1.25" fill="none" stroke-opacity="0.55">
+    <line x1="960" y1="220" x2="960" y2="320"/>
+    <line x1="960" y1="320" x2="500" y2="500"/>
+    <line x1="960" y1="320" x2="960" y2="500"/>
+    <line x1="960" y1="320" x2="1420" y2="500"/>
+    <line x1="500" y1="500" x2="380" y2="700"/>
+    <line x1="500" y1="500" x2="620" y2="700"/>
+    <line x1="960" y1="500" x2="860" y2="700"/>
+    <line x1="960" y1="500" x2="1060" y2="700"/>
+    <line x1="1420" y1="500" x2="1300" y2="700"/>
+    <line x1="1420" y1="500" x2="1540" y2="700"/>
+    <circle cx="960" cy="220" r="8"/>
+  </g>
+  <g fill="#B23A1F" stroke="none">
+    <circle cx="380" cy="700" r="10"/>
+    <circle cx="620" cy="700" r="10"/>
+    <circle cx="860" cy="700" r="10"/>
+    <circle cx="1060" cy="700" r="10"/>
+    <circle cx="1300" cy="700" r="10"/>
+    <circle cx="1540" cy="700" r="10"/>
+  </g>
+  <g font-family="serif" font-style="italic" font-size="20" fill="#0E0F12" fill-opacity="0.65" text-anchor="middle">
+    <text x="380" y="760">i</text>
+    <text x="620" y="760">ii</text>
+    <text x="860" y="760">iii</text>
+    <text x="1060" y="760">iv</text>
+    <text x="1300" y="760">v</text>
+    <text x="1540" y="760">vi</text>
+  </g>
+
+  <g font-family="serif" fill="#0E0F12" fill-opacity="0.5">
+    <text x="120" y="120" font-size="14" letter-spacing="3.4">PLATE</text>
+    <text x="120" y="158" font-size="34" font-style="italic" fill="#B23A1F">D.18</text>
+  </g>
+</svg>

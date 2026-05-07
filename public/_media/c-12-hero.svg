@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Plate C.12 — a field of small open circles converging into one solid disk on the right.">
+  <defs>
+    <radialGradient id="g" cx="35%" cy="40%" r="80%">
+      <stop offset="0%" stop-color="#EFE7D2" stop-opacity="1"/>
+      <stop offset="55%" stop-color="#E8C7BC" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#F7F5F0" stop-opacity="1"/>
+    </radialGradient>
+    <pattern id="dots" x="0" y="0" width="56" height="56" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#0E0F12" fill-opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1920" height="1080" fill="#F7F5F0"/>
+  <rect width="1920" height="1080" fill="url(#g)"/>
+  <rect width="1920" height="1080" fill="url(#dots)"/>
+
+  <!-- Many small circles on the left, converging to a single solid disk on the right -->
+  <g stroke="#0E0F12" stroke-width="1" fill="none" stroke-opacity="0.55">
+    <circle cx="380" cy="280" r="14"/>
+    <circle cx="450" cy="380" r="14"/>
+    <circle cx="380" cy="480" r="14"/>
+    <circle cx="510" cy="540" r="14"/>
+    <circle cx="430" cy="640" r="14"/>
+    <circle cx="380" cy="740" r="14"/>
+    <circle cx="540" cy="780" r="14"/>
+    <circle cx="600" cy="350" r="14"/>
+    <circle cx="640" cy="500" r="14"/>
+    <circle cx="700" cy="650" r="14"/>
+    <circle cx="780" cy="400" r="14"/>
+    <circle cx="830" cy="550" r="14"/>
+    <circle cx="880" cy="700" r="14"/>
+    <circle cx="980" cy="450" r="14"/>
+    <circle cx="1040" cy="600" r="14"/>
+    <circle cx="1180" cy="500" r="14"/>
+    <line x1="600" y1="540" x2="1320" y2="540" stroke-dasharray="4 8"/>
+  </g>
+  <circle cx="1500" cy="540" r="120" fill="#B23A1F" stroke="none" fill-opacity="0.85"/>
+
+  <g font-family="serif" fill="#0E0F12" fill-opacity="0.5">
+    <text x="120" y="120" font-size="14" letter-spacing="3.4">PLATE</text>
+    <text x="120" y="158" font-size="34" font-style="italic" fill="#B23A1F">C.12</text>
+  </g>
+</svg>

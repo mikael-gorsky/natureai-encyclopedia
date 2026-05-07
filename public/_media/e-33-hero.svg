@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Plate E.33 — a spiral of nested concentric circles, with the innermost rendered in vermilion.">
+  <defs>
+    <radialGradient id="g" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#EFE7D2" stop-opacity="1"/>
+      <stop offset="55%" stop-color="#E8C7BC" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#F7F5F0" stop-opacity="1"/>
+    </radialGradient>
+    <pattern id="dots" x="0" y="0" width="56" height="56" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#0E0F12" fill-opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1920" height="1080" fill="#F7F5F0"/>
+  <rect width="1920" height="1080" fill="url(#g)"/>
+  <rect width="1920" height="1080" fill="url(#dots)"/>
+
+  <!-- Concentric circles with progressive offsets, suggesting an orchestrating spiral -->
+  <g stroke="#0E0F12" stroke-width="1.25" fill="none" stroke-opacity="0.55">
+    <circle cx="940" cy="540" r="420"/>
+    <circle cx="950" cy="535" r="340"/>
+    <circle cx="960" cy="530" r="270"/>
+    <circle cx="970" cy="525" r="210"/>
+    <circle cx="980" cy="520" r="155"/>
+    <circle cx="990" cy="515" r="105"/>
+    <circle cx="1000" cy="510" r="60"/>
+  </g>
+  <circle cx="1000" cy="510" r="22" fill="#B23A1F" stroke="none"/>
+
+  <g font-family="serif" fill="#0E0F12" fill-opacity="0.5">
+    <text x="120" y="120" font-size="14" letter-spacing="3.4">PLATE</text>
+    <text x="120" y="158" font-size="34" font-style="italic" fill="#B23A1F">E.33</text>
+  </g>
+</svg>

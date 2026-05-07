@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Plate E.25 — a head silhouette in profile, the interior left blank, with a single vermilion mark inside indicating the question of inner experience.">
+  <defs>
+    <radialGradient id="g" cx="55%" cy="45%" r="80%">
+      <stop offset="0%" stop-color="#EFE7D2" stop-opacity="1"/>
+      <stop offset="60%" stop-color="#E8C7BC" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#F7F5F0" stop-opacity="1"/>
+    </radialGradient>
+    <pattern id="dots" x="0" y="0" width="56" height="56" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#0E0F12" fill-opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1920" height="1080" fill="#F7F5F0"/>
+  <rect width="1920" height="1080" fill="url(#g)"/>
+  <rect width="1920" height="1080" fill="url(#dots)"/>
+
+  <!-- Head profile silhouette outline, very minimal -->
+  <g stroke="#0E0F12" stroke-width="1.5" fill="none" stroke-opacity="0.6">
+    <path d="M 720 820
+             C 700 700, 680 600, 700 500
+             C 720 380, 800 280, 940 250
+             C 1100 220, 1240 280, 1300 400
+             C 1340 480, 1340 560, 1300 620
+             L 1280 700
+             L 1240 720
+             L 1240 820 Z"/>
+  </g>
+
+  <!-- A single vermilion mark inside the head, asymmetrically placed -->
+  <circle cx="980" cy="500" r="5" fill="#B23A1F" stroke="none"/>
+
+  <!-- Faint question-mark-like arc in the negative space -->
+  <g stroke="#B23A1F" stroke-width="1" fill="none" stroke-opacity="0.5" stroke-dasharray="3 6">
+    <path d="M 960 380 C 1000 380, 1040 410, 1040 460 C 1040 500, 1000 510, 980 510"/>
+  </g>
+
+  <g font-family="serif" fill="#0E0F12" fill-opacity="0.5">
+    <text x="120" y="120" font-size="14" letter-spacing="3.4">PLATE</text>
+    <text x="120" y="158" font-size="34" font-style="italic" fill="#B23A1F">E.25</text>
+  </g>
+</svg>

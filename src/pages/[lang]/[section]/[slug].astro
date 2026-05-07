@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 import { locales, type Locale } from '../../../i18n/config';
+import { articleSlug } from '../../../lib/plate';
 
 export async function getStaticPaths() {
   const all = await getCollection('articles');
@@ -11,7 +12,7 @@ export async function getStaticPaths() {
       params: {
         lang: entry.data.lang,
         section: entry.data.section,
-        slug: entry.slug,
+        slug: articleSlug(entry.slug),
       },
       props: { entry },
     }));

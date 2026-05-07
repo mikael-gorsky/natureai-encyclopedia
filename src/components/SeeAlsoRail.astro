@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import { t } from '../i18n';
 import type { Locale } from '../i18n/config';
+import { articleSlug } from '../lib/plate';
 
 interface Props {
   slugs: string[];
@@ -12,7 +13,7 @@ const { slugs, lang } = Astro.props;
 
 const allArticles = await getCollection('articles', ({ data }) => data.lang === lang && !data.draft);
 const referenced = slugs
-  .map((s) => allArticles.find((a) => a.slug === s))
+  .map((s) => allArticles.find((a) => articleSlug(a.slug) === s))
   .filter((a): a is NonNullable<typeof a> => Boolean(a));
 ---
 
@@ -21,7 +22,7 @@ const referenced = slugs
     <h2 id="see-also-heading" class="see-also-title">{t(lang, 'article.seeAlso')}</h2>
     <div class="see-also-grid">
       {referenced.map((a) => (
-        <a class="see-also-card" href={`/${lang}/${a.data.section}/${a.slug}/`}>
+        <a class="see-also-card" href={`/${lang}/${a.data.section}/${articleSlug(a.slug)}/`}>
           <span class="see-also-plate">{a.data.plate}</span>
           <h3 class="see-also-card-title">{a.data.title}</h3>
           <p class="see-also-card-summary">{a.data.summary}</p>

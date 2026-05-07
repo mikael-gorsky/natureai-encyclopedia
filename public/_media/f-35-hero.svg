@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Plate F.35 — a regular grid of small dots overlaid by thin diagonal lines, suggesting surveillance laid over a city plan.">
+  <defs>
+    <radialGradient id="g" cx="50%" cy="50%" r="80%">
+      <stop offset="0%" stop-color="#EFE7D2" stop-opacity="1"/>
+      <stop offset="55%" stop-color="#E8C7BC" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#F7F5F0" stop-opacity="1"/>
+    </radialGradient>
+    <pattern id="grid" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+      <circle cx="40" cy="40" r="2" fill="#0E0F12" fill-opacity="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1920" height="1080" fill="#F7F5F0"/>
+  <rect width="1920" height="1080" fill="url(#g)"/>
+
+  <!-- A dense grid of dots within a bounded rectangle -->
+  <rect x="380" y="180" width="1160" height="720" fill="url(#grid)" stroke="#0E0F12" stroke-width="1" stroke-opacity="0.55"/>
+
+  <!-- Diagonal sweep lines -->
+  <g stroke="#B23A1F" stroke-width="1" stroke-opacity="0.7">
+    <line x1="380" y1="180" x2="1540" y2="900" stroke-dasharray="3 6"/>
+    <line x1="380" y1="900" x2="1540" y2="180" stroke-dasharray="3 6"/>
+    <line x1="380" y1="540" x2="1540" y2="540"/>
+    <line x1="960" y1="180" x2="960" y2="900"/>
+  </g>
+  <circle cx="960" cy="540" r="6" fill="#B23A1F" stroke="none"/>
+
+  <g font-family="serif" fill="#0E0F12" fill-opacity="0.5">
+    <text x="120" y="120" font-size="14" letter-spacing="3.4">PLATE</text>
+    <text x="120" y="158" font-size="34" font-style="italic" fill="#B23A1F">F.35</text>
+  </g>
+</svg>
