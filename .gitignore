@@ -29,3 +29,6 @@ dist/pagefind/
 
 # Local-only working source — keep paper.txt + chapters in repo (small) but ignore drafts
 source/_drafts/
+
+# Local Netlify folder
+.netlify
