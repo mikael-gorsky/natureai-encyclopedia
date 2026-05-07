@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Abstract gallery placeholder for Plate B.07: Cognitive Offloading">
+  <defs>
+    <radialGradient id="g1" cx="35%" cy="40%" r="80%">
+      <stop offset="0%" stop-color="#EFE7D2" stop-opacity="1"/>
+      <stop offset="55%" stop-color="#E8C7BC" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#F7F5F0" stop-opacity="1"/>
+    </radialGradient>
+    <pattern id="dots" x="0" y="0" width="56" height="56" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#0E0F12" fill-opacity="0.06"/>
+    </pattern>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="7"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.07  0 0 0 0 0.07  0 0 0 0 0.07  0 0 0 0.04 0"/>
+      <feComposite operator="over" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+
+  <rect width="1920" height="1080" fill="#F7F5F0"/>
+  <rect width="1920" height="1080" fill="url(#g1)"/>
+  <rect width="1920" height="1080" fill="url(#dots)"/>
+
+  <!-- Geometric architecture: a rectangle (the mind) and an offloaded annex -->
+  <g stroke="#0E0F12" stroke-width="1.25" fill="none" stroke-opacity="0.55">
+    <rect x="380" y="280" width="540" height="540"/>
+    <rect x="1080" y="380" width="340" height="340"/>
+    <line x1="920" y1="550" x2="1080" y2="550"/>
+    <line x1="920" y1="540" x2="1080" y2="540" stroke-dasharray="4 6"/>
+    <line x1="920" y1="560" x2="1080" y2="560" stroke-dasharray="4 6"/>
+    <circle cx="650" cy="550" r="3" fill="#B23A1F" stroke="none"/>
+    <circle cx="1250" cy="550" r="3" fill="#B23A1F" stroke="none"/>
+  </g>
+
+  <!-- Plate marker -->
+  <g font-family="serif" fill="#0E0F12" fill-opacity="0.5">
+    <text x="120" y="120" font-size="14" letter-spacing="3.4">PLATE</text>
+    <text x="120" y="158" font-size="34" font-style="italic" fill="#B23A1F">B.07</text>
+  </g>
+</svg>

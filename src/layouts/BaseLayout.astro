@@ -1,0 +1,61 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import { direction, htmlLang, isLocale, defaultLocale, type Locale } from '../i18n/config';
+import { t } from '../i18n';
+
+interface Props {
+  title: string;
+  description?: string;
+  lang?: string;
+  ogImage?: string;
+  noNav?: boolean;
+}
+
+const { title, description, lang: rawLang, ogImage, noNav = false } = Astro.props;
+const lang: Locale = rawLang && isLocale(rawLang) ? rawLang : defaultLocale;
+const dir = direction[lang];
+const htmlLangAttr = htmlLang[lang];
+const siteTitle = t(lang, 'site.title');
+const fullTitle = title === siteTitle ? title : `${title} — ${siteTitle}`;
+const desc = description ?? t(lang, 'site.subtitle');
+const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://rain1.mgorsky.net').toString();
+---
+
+<!doctype html>
+<html lang={htmlLangAttr} dir={dir} data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{fullTitle}</title>
+    <meta name="description" content={desc} />
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:url" content={canonical} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" title={`${siteTitle} (${lang})`} href={`/rss-${lang}.xml`} />
+
+    <script is:inline>
+      // Set theme before paint to avoid flash
+      try {
+        const stored = localStorage.getItem('theme');
+        if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.dataset.theme = 'dark';
+        }
+      } catch (_) {}
+    </script>
+  </head>
+  <body>
+    {!noNav && <Nav lang={lang} />}
+    <main id="main">
+      <slot />
+    </main>
+  </body>
+</html>

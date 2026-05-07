@@ -1,0 +1,84 @@
+---
+import { t } from '../i18n';
+import { sectionLetter, sectionTitles, type Locale, type SectionId } from '../i18n/config';
+
+interface Props {
+  lang: Locale;
+  section: SectionId;
+  plateCount: number;
+  thumb?: string;
+}
+
+const { lang, section, plateCount, thumb } = Astro.props;
+---
+
+<a class="section-door" href={`/${lang}/${section}/`}>
+  <span class="section-door-letter">{sectionLetter[section]}</span>
+  <h3 class="section-door-title">{sectionTitles[lang][section]}</h3>
+  <span class="section-door-count">{t(lang, 'section.plateCount', { count: plateCount })}</span>
+  {thumb && (
+    <div class="section-door-thumb" style={`background-image: url('${thumb}');`} aria-hidden></div>
+  )}
+</a>
+
+<style>
+  .section-door {
+    position: relative;
+    display: grid;
+    grid-template-areas:
+      'letter thumb'
+      'title  thumb'
+      'count  thumb';
+    grid-template-columns: 1fr 8rem;
+    grid-template-rows: auto 1fr auto;
+    gap: 0.5rem 1.5rem;
+    padding: 2rem;
+    border: 1px solid rgb(var(--rule));
+    background: rgb(var(--surface));
+    text-decoration: none;
+    color: rgb(var(--ink));
+    aspect-ratio: 5 / 3;
+    transition: border-color 200ms ease, transform 200ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    overflow: hidden;
+  }
+
+  .section-door:hover {
+    border-color: rgb(var(--ink));
+    transform: translateY(-3px);
+  }
+
+  .section-door-letter {
+    grid-area: letter;
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    font-style: italic;
+    color: rgb(var(--accent));
+    letter-spacing: 0.04em;
+  }
+
+  .section-door-title {
+    grid-area: title;
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    line-height: 1.15;
+    margin: 0;
+    align-self: end;
+    font-weight: 500;
+    color: rgb(var(--ink));
+  }
+
+  .section-door-count {
+    grid-area: count;
+    font-size: 0.6875rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgb(var(--ink-muted));
+  }
+
+  .section-door-thumb {
+    grid-area: thumb;
+    background-size: cover;
+    background-position: center;
+    background-color: rgb(var(--highlight));
+  }
+</style>

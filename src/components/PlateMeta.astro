@@ -1,0 +1,83 @@
+---
+import { t } from '../i18n';
+import type { Locale } from '../i18n/config';
+
+interface Props {
+  plate: string;
+  section: string;
+  readingTime: number;
+  lastUpdated: Date;
+  lang: Locale;
+}
+
+const { plate, section, readingTime, lastUpdated, lang } = Astro.props;
+
+const dateMap: Record<Locale, string> = {
+  en: 'en-US',
+  ru: 'ru-RU',
+  he: 'he-IL',
+  am: 'am-ET',
+};
+
+const dateStr = new Intl.DateTimeFormat(dateMap[lang], {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+}).format(lastUpdated);
+
+const readingStr = t(lang, 'article.readingTime', { minutes: readingTime });
+const lastUpdatedStr = t(lang, 'article.lastUpdated', { date: dateStr });
+---
+
+<div class="plate-meta-strip">
+  <span class="plate-meta-cell">
+    <span class="plate-meta-label">{t(lang, 'article.plate')}</span>
+    <span class="plate-meta-value">{plate}</span>
+  </span>
+  <span class="plate-meta-divider" aria-hidden>·</span>
+  <span class="plate-meta-cell">{section}</span>
+  <span class="plate-meta-divider" aria-hidden>·</span>
+  <span class="plate-meta-cell">{readingStr}</span>
+  <span class="plate-meta-divider" aria-hidden>·</span>
+  <span class="plate-meta-cell">{lastUpdatedStr}</span>
+</div>
+
+<style>
+  .plate-meta-strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.6rem;
+    font-size: 0.6875rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgb(var(--ink-muted));
+    border-block: 1px solid rgb(var(--rule));
+    padding-block: 0.75rem;
+    margin-block-start: 2rem;
+  }
+
+  .plate-meta-cell {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.4rem;
+  }
+
+  .plate-meta-label {
+    font-style: italic;
+    text-transform: none;
+    letter-spacing: 0.04em;
+    font-size: 0.75rem;
+    font-family: var(--font-display);
+    color: rgb(var(--accent));
+  }
+
+  .plate-meta-value {
+    font-weight: 600;
+    color: rgb(var(--ink));
+  }
+
+  .plate-meta-divider {
+    opacity: 0.4;
+  }
+</style>

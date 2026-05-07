@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rain1.mgorsky.net/sitemap-index.xml

@@ -1,0 +1,6 @@
+# Language detection: when a visitor lands on a section/article path without a locale prefix,
+# the bare root `/` shows the language picker instead of auto-redirecting.
+# Keep clean: no automatic Accept-Language redirect from / — that fights browsers' back button.
+# Phase 0: only the root picker + per-locale routes are needed; Astro generates the rest.
+
+# Trailing-slash normalization handled by Astro `trailingSlash: 'always'`.

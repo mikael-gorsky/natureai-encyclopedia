@@ -1,0 +1,236 @@
+/* ============================================================
+   FONT LOADING — must precede @tailwind directives
+   Phase 0 uses Google Fonts via @import. Phase 0.5 swaps to
+   self-hosted woff2 under /public/fonts/*.
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Inter:wght@400;500;600;700&family=Frank+Ruhl+Libre:wght@400;500;600;700&family=Heebo:wght@400;500;600;700&family=Noto+Serif+Ethiopic:wght@400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   DESIGN TOKENS
+   Light is dominant; dark via :root[data-theme="dark"].
+   Tokens are RGB triples so Tailwind's <alpha-value> works.
+   ============================================================ */
+
+:root {
+  /* Color */
+  --bg: 247 245 240;            /* #F7F5F0 — gallery wall */
+  --surface: 255 255 255;       /* #FFFFFF — placard white */
+  --ink: 14 15 18;              /* #0E0F12 — near-black */
+  --ink-muted: 90 92 98;        /* #5A5C62 */
+  --rule: 217 212 200;          /* #D9D4C8 */
+  --accent: 178 58 31;          /* #B23A1F — vermilion / cinnabar */
+  --accent-muted: 232 199 188;  /* #E8C7BC */
+  --highlight: 239 231 210;     /* #EFE7D2 */
+
+  /* Typography (script-default = Latin) */
+  --font-display: 'Fraunces', 'Times New Roman', serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+
+  /* Rhythm */
+  --leading-body: 1.65;
+  --measure: 65ch;
+}
+
+:root[data-theme="dark"] {
+  --bg: 21 18 14;            /* #15120E — deep umber, not black */
+  --surface: 30 26 20;       /* #1E1A14 */
+  --ink: 242 238 229;        /* #F2EEE5 */
+  --ink-muted: 168 163 154;  /* #A8A39A */
+  --rule: 46 41 32;          /* #2E2920 */
+  --accent: 225 106 77;      /* #E16A4D */
+  --accent-muted: 58 32 26;  /* #3A201A */
+  --highlight: 37 31 21;     /* #251F15 */
+}
+
+/* Cyrillic uses the same Fraunces/Inter — both have native Cyrillic. */
+:root[lang="ru"] {
+  --font-display: 'Fraunces', 'PT Serif', 'Times New Roman', serif;
+  --font-body: 'Inter', 'PT Sans', system-ui, sans-serif;
+}
+
+/* Hebrew — RTL, dedicated faces */
+:root[lang="he"] {
+  --font-display: 'Frank Ruhl Libre', 'David Libre', 'Times New Roman', serif;
+  --font-body: 'Heebo', 'Arial Hebrew', system-ui, sans-serif;
+  --leading-body: 1.75;
+}
+
+/* Amharic — Ge'ez script, Noto Ethiopic */
+:root[lang="am"] {
+  --font-display: 'Noto Serif Ethiopic', 'Abyssinica SIL', serif;
+  --font-body: 'Noto Sans Ethiopic', system-ui, sans-serif;
+  --leading-body: 1.55;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+
+html {
+  background: rgb(var(--bg));
+  color: rgb(var(--ink));
+  font-family: var(--font-body);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-height: 100vh;
+  line-height: var(--leading-body);
+  background: rgb(var(--bg));
+  color: rgb(var(--ink));
+  margin: 0;
+}
+
+/* RTL marginalia mirroring */
+:root[dir="rtl"] .marginalia-rail {
+  inset-inline-start: auto;
+  inset-inline-end: 100%;
+}
+
+/* Selection */
+::selection {
+  background: rgb(var(--accent) / 0.18);
+  color: rgb(var(--ink));
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid rgb(var(--accent));
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+/* Headings inherit display family */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: rgb(var(--ink));
+}
+
+h1 { line-height: 1.05; }
+h2 { line-height: 1.15; }
+h3 { line-height: 1.25; }
+
+a {
+  color: rgb(var(--accent));
+  text-decoration: none;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+hr {
+  border: none;
+  border-block-start: 1px solid rgb(var(--rule));
+  margin-block: 2.5rem;
+}
+
+/* ============================================================
+   PROSE — museum-prose typography for article body
+   ============================================================ */
+
+.prose-museum {
+  max-inline-size: var(--measure);
+  font-size: 1.125rem;
+  line-height: var(--leading-body);
+  color: rgb(var(--ink));
+}
+
+.prose-museum > * + * {
+  margin-block-start: 1.4em;
+}
+
+.prose-museum h2 {
+  font-size: 1.875rem;
+  margin-block-start: 2.5em;
+  margin-block-end: 0.5em;
+}
+
+.prose-museum h3 {
+  font-size: 1.375rem;
+  margin-block-start: 2em;
+  margin-block-end: 0.4em;
+}
+
+.prose-museum p > strong {
+  font-weight: 600;
+  color: rgb(var(--ink));
+}
+
+.prose-museum em {
+  font-style: italic;
+}
+
+.prose-museum blockquote {
+  border-inline-start: 2px solid rgb(var(--accent));
+  padding-inline-start: 1.5rem;
+  margin-inline: 0;
+  font-style: italic;
+  color: rgb(var(--ink-muted));
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.prose-museum ul, .prose-museum ol {
+  padding-inline-start: 1.5rem;
+}
+
+.prose-museum li + li {
+  margin-block-start: 0.5em;
+}
+
+.prose-museum code {
+  font-family: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+  font-size: 0.9em;
+  background: rgb(var(--highlight));
+  padding: 0.1em 0.35em;
+  border-radius: 2px;
+}
+
+.prose-museum a {
+  color: rgb(var(--ink));
+  text-decoration: underline;
+  text-decoration-color: rgb(var(--accent));
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  transition: text-decoration-color 200ms ease;
+}
+.prose-museum a:hover {
+  text-decoration-color: rgb(var(--ink));
+}
+
+/* Heading anchors (rehype-autolink-headings with append) */
+.prose-museum .heading-anchor {
+  margin-inline-start: 0.4em;
+  opacity: 0;
+  font-size: 0.7em;
+  transition: opacity 200ms ease;
+}
+.prose-museum h2:hover .heading-anchor,
+.prose-museum h3:hover .heading-anchor {
+  opacity: 0.5;
+}
+
+/* Plate-style metadata strip */
+.plate-meta {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgb(var(--ink-muted));
+  font-weight: 500;
+}
+
+/* Smooth fade for theme switches */
+html {
+  transition: background-color 250ms ease, color 250ms ease;
+}

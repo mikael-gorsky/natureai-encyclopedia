@@ -1,0 +1,126 @@
+---
+import { t } from '../i18n';
+import { sectionOrder, sectionLetter, sectionTitles, type Locale } from '../i18n/config';
+import LanguageSwitcher from './LanguageSwitcher.tsx';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+---
+
+<header class="site-nav">
+  <div class="site-nav-inner">
+    <a href={`/${lang}/`} class="wordmark">
+      <span class="wordmark-mark">N°</span>
+      <span class="wordmark-text">{t(lang, 'site.title')}</span>
+    </a>
+
+    <nav class="site-nav-links" aria-label="Main">
+      {sectionOrder.map((sec) => (
+        <a href={`/${lang}/${sec}/`} class="nav-section">
+          <span class="nav-section-letter">{sectionLetter[sec]}</span>
+          <span class="nav-section-label">{sectionTitles[lang][sec]}</span>
+        </a>
+      ))}
+    </nav>
+
+    <div class="site-nav-tools">
+      <a href={`/${lang}/glossary/`} class="tool-link">{t(lang, 'nav.glossary')}</a>
+      <a href={`/${lang}/about/`} class="tool-link">{t(lang, 'nav.about')}</a>
+      <LanguageSwitcher client:load currentLang={lang} />
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-nav {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 50;
+    background: rgb(var(--bg) / 0.92);
+    backdrop-filter: blur(12px);
+    border-block-end: 1px solid rgb(var(--rule));
+  }
+
+  .site-nav-inner {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 2rem;
+    max-inline-size: 90rem;
+    margin-inline: auto;
+    padding: 1rem 1.5rem;
+  }
+
+  .wordmark {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    color: rgb(var(--ink));
+    text-decoration: none;
+    font-family: var(--font-display);
+  }
+
+  .wordmark-mark {
+    font-size: 1.25rem;
+    color: rgb(var(--accent));
+    font-style: italic;
+  }
+
+  .wordmark-text {
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    max-inline-size: 18ch;
+    line-height: 1.2;
+  }
+
+  .site-nav-links {
+    display: none;
+    gap: 1.5rem;
+    justify-self: center;
+  }
+
+  @media (min-width: 1024px) {
+    .site-nav-links {
+      display: flex;
+    }
+  }
+
+  .nav-section {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    color: rgb(var(--ink-muted));
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 200ms ease;
+  }
+  .nav-section:hover {
+    color: rgb(var(--ink));
+  }
+
+  .nav-section-letter {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 0.75rem;
+    color: rgb(var(--accent));
+  }
+
+  .site-nav-tools {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .tool-link {
+    color: rgb(var(--ink-muted));
+    font-size: 0.875rem;
+    text-decoration: none;
+  }
+  .tool-link:hover {
+    color: rgb(var(--ink));
+  }
+</style>

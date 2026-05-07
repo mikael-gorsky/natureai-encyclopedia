@@ -1,0 +1,196 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { locales, sectionOrder, sectionLetter, sectionTitles, type Locale, type SectionId } from '../../../i18n/config';
+import { t } from '../../../i18n';
+
+export async function getStaticPaths() {
+  const out = [];
+  for (const lang of locales) {
+    for (const section of sectionOrder) {
+      out.push({ params: { lang, section } });
+    }
+  }
+  return out;
+}
+
+const lang = Astro.params.lang as Locale;
+const section = Astro.params.section as SectionId;
+
+const articles = await getCollection(
+  'articles',
+  ({ data }) => data.lang === lang && data.section === section && !data.draft,
+);
+articles.sort((a, b) => a.data.order - b.data.order);
+
+const sectionTitle = sectionTitles[lang][section];
+const letter = sectionLetter[section];
+const dateMap: Record<Locale, string> = {
+  en: 'en-US', ru: 'ru-RU', he: 'he-IL', am: 'am-ET',
+};
+const fmtDate = (d: Date) => new Intl.DateTimeFormat(dateMap[lang], { year: 'numeric', month: 'short' }).format(d);
+---
+
+<BaseLayout title={sectionTitle} lang={lang}>
+  <section class="section-opener">
+    <div class="section-opener-inner">
+      <span class="section-letter">{letter}</span>
+      <h1 class="section-title">{sectionTitle}</h1>
+      <p class="section-count">{t(lang, 'section.plateCount', { count: articles.length })}</p>
+    </div>
+  </section>
+
+  <section class="catalogue">
+    <div class="catalogue-inner">
+      {articles.length === 0 && (
+        <p class="catalogue-empty">{lang === 'en' ? 'Plates coming soon.' : t(lang, 'article.translationPending')}</p>
+      )}
+      {articles.length > 0 && (
+        <ol class="catalogue-list">
+          {articles.map((a) => (
+            <li class="catalogue-row">
+              <a class="catalogue-row-link" href={`/${lang}/${a.data.section}/${a.slug}/`}>
+                <span class="catalogue-plate">{a.data.plate}</span>
+                <span class="catalogue-title">{a.data.title}</span>
+                <span class="catalogue-summary">{a.data.summary}</span>
+                <span class="catalogue-meta">{fmtDate(a.data.lastUpdated)}</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .section-opener {
+    min-block-size: 70vh;
+    display: grid;
+    align-items: center;
+    padding: 6rem 2rem 4rem;
+    border-block-end: 1px solid rgb(var(--rule));
+  }
+
+  .section-opener-inner {
+    max-inline-size: 90rem;
+    margin-inline: auto;
+    inline-size: 100%;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .section-letter {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: rgb(var(--accent));
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 9vw, 9rem);
+    line-height: 0.95;
+    font-weight: 400;
+    margin: 0;
+    max-inline-size: 22ch;
+  }
+
+  .section-count {
+    font-size: 0.6875rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgb(var(--ink-muted));
+    margin: 0;
+  }
+
+  .catalogue {
+    padding: 4rem 2rem 6rem;
+  }
+
+  .catalogue-inner {
+    max-inline-size: 80rem;
+    margin-inline: auto;
+  }
+
+  .catalogue-empty {
+    font-style: italic;
+    color: rgb(var(--ink-muted));
+    text-align: center;
+    padding: 3rem 0;
+  }
+
+  .catalogue-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .catalogue-row {
+    border-block-end: 1px solid rgb(var(--rule));
+  }
+  .catalogue-row:first-child {
+    border-block-start: 1px solid rgb(var(--rule));
+  }
+
+  .catalogue-row-link {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    grid-template-areas:
+      'plate  title'
+      'plate  summary'
+      'plate  meta';
+    gap: 0.25rem 1.5rem;
+    padding: 1.75rem 0.5rem;
+    color: rgb(var(--ink));
+    text-decoration: none;
+    transition: background 200ms ease, padding-inline-start 250ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    align-items: baseline;
+  }
+
+  .catalogue-row-link:hover {
+    background: rgb(var(--highlight));
+    padding-inline-start: 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .catalogue-row-link {
+      grid-template-columns: 5rem 22rem 1fr 8rem;
+      grid-template-areas: 'plate title summary meta';
+    }
+  }
+
+  .catalogue-plate {
+    grid-area: plate;
+    font-size: 0.875rem;
+    letter-spacing: 0.12em;
+    color: rgb(var(--accent));
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .catalogue-title {
+    grid-area: title;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    line-height: 1.2;
+    color: rgb(var(--ink));
+    font-weight: 500;
+  }
+
+  .catalogue-summary {
+    grid-area: summary;
+    font-size: 0.9375rem;
+    color: rgb(var(--ink-muted));
+    line-height: 1.5;
+  }
+
+  .catalogue-meta {
+    grid-area: meta;
+    font-size: 0.6875rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgb(var(--ink-muted));
+    font-variant-numeric: tabular-nums;
+  }
+</style>

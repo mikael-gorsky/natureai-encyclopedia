@@ -1,0 +1,78 @@
+---
+import { t } from '../i18n';
+import type { Locale } from '../i18n/config';
+
+interface Citation {
+  id: number;
+  text: string;
+}
+
+interface Props {
+  citations: Citation[];
+  lang: Locale;
+}
+
+const { citations, lang } = Astro.props;
+---
+
+<aside class="citations" aria-labelledby="citations-heading">
+  <h2 id="citations-heading" class="citations-title">{t(lang, 'article.citations')}</h2>
+  <ol class="citations-list">
+    {citations.map((c) => (
+      <li id={`cite-${c.id}`} class="citations-item">
+        <span class="citations-number">[{c.id}]</span>
+        <span class="citations-text">{c.text}</span>
+      </li>
+    ))}
+  </ol>
+</aside>
+
+<style>
+  .citations {
+    margin-block-start: 4rem;
+    padding-block-start: 2rem;
+    border-block-start: 1px solid rgb(var(--rule));
+  }
+
+  .citations-title {
+    font-size: 0.6875rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgb(var(--ink-muted));
+    margin-block: 0 1rem;
+    font-family: var(--font-body);
+    font-weight: 500;
+  }
+
+  .citations-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: rgb(var(--ink-muted));
+  }
+
+  @media (min-width: 768px) {
+    .citations-list {
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem 2rem;
+    }
+  }
+
+  .citations-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5rem;
+    align-items: baseline;
+  }
+
+  .citations-number {
+    font-weight: 600;
+    color: rgb(var(--accent));
+    font-variant-numeric: tabular-nums;
+  }
+</style>

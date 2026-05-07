@@ -1,0 +1,101 @@
+---
+import { getCollection } from 'astro:content';
+import { t } from '../i18n';
+import type { Locale } from '../i18n/config';
+
+interface Props {
+  slugs: string[];
+  lang: Locale;
+}
+
+const { slugs, lang } = Astro.props;
+
+const allArticles = await getCollection('articles', ({ data }) => data.lang === lang && !data.draft);
+const referenced = slugs
+  .map((s) => allArticles.find((a) => a.slug === s))
+  .filter((a): a is NonNullable<typeof a> => Boolean(a));
+---
+
+{referenced.length > 0 && (
+  <aside class="see-also" aria-labelledby="see-also-heading">
+    <h2 id="see-also-heading" class="see-also-title">{t(lang, 'article.seeAlso')}</h2>
+    <div class="see-also-grid">
+      {referenced.map((a) => (
+        <a class="see-also-card" href={`/${lang}/${a.data.section}/${a.slug}/`}>
+          <span class="see-also-plate">{a.data.plate}</span>
+          <h3 class="see-also-card-title">{a.data.title}</h3>
+          <p class="see-also-card-summary">{a.data.summary}</p>
+        </a>
+      ))}
+    </div>
+  </aside>
+)}
+
+<style>
+  .see-also {
+    margin-block-start: 5rem;
+    padding-block-start: 2.5rem;
+    border-block-start: 1px solid rgb(var(--rule));
+  }
+
+  .see-also-title {
+    font-size: 0.6875rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgb(var(--ink-muted));
+    margin-block: 0 1.5rem;
+    font-family: var(--font-body);
+    font-weight: 500;
+  }
+
+  .see-also-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .see-also-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .see-also-card {
+    display: block;
+    padding: 1.5rem;
+    border: 1px solid rgb(var(--rule));
+    background: rgb(var(--surface));
+    text-decoration: none;
+    transition: border-color 200ms ease, transform 200ms ease;
+  }
+
+  .see-also-card:hover {
+    border-color: rgb(var(--ink));
+    transform: translateY(-2px);
+  }
+
+  .see-also-plate {
+    display: block;
+    font-size: 0.6875rem;
+    letter-spacing: 0.18em;
+    color: rgb(var(--accent));
+    font-weight: 600;
+    margin-block-end: 0.75rem;
+  }
+
+  .see-also-card-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    line-height: 1.25;
+    color: rgb(var(--ink));
+    margin: 0 0 0.5rem;
+    font-weight: 500;
+  }
+
+  .see-also-card-summary {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: rgb(var(--ink-muted));
+    margin: 0;
+  }
+</style>

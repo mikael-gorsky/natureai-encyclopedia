@@ -1,0 +1,166 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import PlateMeta from '../components/PlateMeta.astro';
+import SeeAlsoRail from '../components/SeeAlsoRail.astro';
+import CitationsFooter from '../components/CitationsFooter.astro';
+import { t } from '../i18n';
+import { sectionTitles, type Locale, type SectionId } from '../i18n/config';
+import type { ArticleEntry } from '../content/config';
+
+interface Props {
+  article: ArticleEntry;
+}
+
+const { article } = Astro.props;
+const { data } = article;
+const lang = data.lang as Locale;
+const sectionTitle = sectionTitles[lang][data.section as SectionId];
+---
+
+<BaseLayout
+  title={data.title}
+  description={data.summary}
+  lang={lang}
+  ogImage={data.hero?.src}
+>
+  <article class="article-page">
+    {data.hero && (
+      <div class="article-hero">
+        <img src={data.hero.src} alt={data.hero.alt} loading="eager" />
+        <div class="article-hero-overlay">
+          <span class="plate-meta">{t(lang, 'article.plate')} {data.plate}</span>
+          <h1 class="article-hero-title">{data.title}</h1>
+        </div>
+      </div>
+    )}
+
+    <div class="article-container">
+      <PlateMeta
+        plate={data.plate}
+        section={sectionTitle}
+        readingTime={data.readingTime ?? 5}
+        lastUpdated={data.lastUpdated}
+        lang={lang}
+      />
+
+      {!data.hero && <h1 class="article-title">{data.title}</h1>}
+
+      <p class="article-lede">{data.summary}</p>
+
+      {data.translationStatus === 'machine-only-pending-review' && (
+        <div class="translation-pending">{t(lang, 'article.translationPending')}</div>
+      )}
+
+      <div class="article-body prose-museum">
+        <slot />
+      </div>
+
+      {data.seeAlso.length > 0 && (
+        <SeeAlsoRail slugs={data.seeAlso} lang={lang} />
+      )}
+
+      {data.citations.length > 0 && (
+        <CitationsFooter citations={data.citations} lang={lang} />
+      )}
+
+      <footer class="article-footer">
+        <p class="article-attribution">
+          {data.paperSections.length > 0
+            ? t(lang, 'article.adapted', { section: data.paperSections.join(', ') })
+            : t(lang, 'article.editorial')}
+        </p>
+      </footer>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .article-page {
+    margin-block-end: 6rem;
+  }
+
+  .article-hero {
+    position: relative;
+    block-size: 70vh;
+    min-block-size: 32rem;
+    margin-block-end: 4rem;
+    overflow: hidden;
+  }
+
+  .article-hero img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .article-hero-overlay {
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-end: 0;
+    padding: 3rem;
+    background: linear-gradient(
+      to top,
+      rgb(var(--bg) / 0.95) 0%,
+      rgb(var(--bg) / 0.7) 60%,
+      transparent 100%
+    );
+    inline-size: 100%;
+  }
+
+  .article-hero-title {
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 400;
+    margin-block-start: 1rem;
+    max-inline-size: 30ch;
+  }
+
+  .article-container {
+    max-inline-size: var(--measure);
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  .article-title {
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+    font-weight: 400;
+    margin-block-start: 1rem;
+    margin-block-end: 0;
+  }
+
+  .article-lede {
+    font-family: var(--font-display);
+    font-size: 1.375rem;
+    line-height: 1.5;
+    color: rgb(var(--ink-muted));
+    margin-block-start: 2rem;
+    margin-block-end: 3rem;
+    font-weight: 400;
+  }
+
+  .translation-pending {
+    font-size: 0.8125rem;
+    font-style: italic;
+    color: rgb(var(--ink-muted));
+    background: rgb(var(--highlight));
+    border-inline-start: 2px solid rgb(var(--accent));
+    padding: 0.75rem 1rem;
+    margin-block-end: 2rem;
+  }
+
+  .article-body {
+    margin-block-start: 2rem;
+  }
+
+  .article-footer {
+    margin-block-start: 5rem;
+    padding-block-start: 2rem;
+    border-block-start: 1px solid rgb(var(--rule));
+  }
+
+  .article-attribution {
+    font-size: 0.8125rem;
+    color: rgb(var(--ink-muted));
+    font-style: italic;
+  }
+</style>

@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import { locales, type Locale } from '../../../i18n/config';
+
+export async function getStaticPaths() {
+  const all = await getCollection('articles');
+  return all
+    .filter(({ data }) => !data.draft)
+    .map((entry) => ({
+      params: {
+        lang: entry.data.lang,
+        section: entry.data.section,
+        slug: entry.slug,
+      },
+      props: { entry },
+    }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<ArticleLayout article={entry}>
+  <Content />
+</ArticleLayout>

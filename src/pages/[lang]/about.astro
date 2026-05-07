@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { locales, type Locale } from '../../i18n/config';
+import { t } from '../../i18n';
+
+export async function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Locale;
+---
+
+<BaseLayout title={t(lang, 'nav.about')} lang={lang}>
+  <article class="colophon">
+    <header class="colophon-header">
+      <span class="colophon-mark">N°</span>
+      <h1 class="colophon-title">{t(lang, 'nav.about')}</h1>
+    </header>
+
+    <div class="colophon-body prose-museum">
+      <p>
+        This encyclopedia gathers, in forty entries, the conceptual material of
+        Rénald Gesnot's monograph <em>The Impact of Artificial Intelligence on Human
+        Thought</em> (arXiv:2508.16628, 2025). Gesnot's argument runs across eight
+        chapters; we have rearranged it as a wiki of self-contained pieces, each
+        readable on its own and linked to its neighbors.
+      </p>
+
+      <p>
+        The text is presented in four languages — English, Russian, Hebrew, Amharic —
+        with English as the source-of-truth. Translations are produced with
+        machine assistance and reviewed by a human editor. Articles awaiting
+        review carry a small italic notice; please treat them accordingly.
+      </p>
+
+      <p>
+        Hero imagery is generated from a single prompt template per article;
+        the prompt for each plate is logged at <code>/about/methodology</code>.
+        We are honest about provenance.
+      </p>
+
+      <p>
+        <em>
+          {t(lang, 'footer.attribution')}
+        </em>
+      </p>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .colophon {
+    max-inline-size: 56rem;
+    margin-inline: auto;
+    padding: 6rem 2rem 4rem;
+  }
+  .colophon-header { display: grid; gap: 0.75rem; margin-block-end: 3rem; }
+  .colophon-mark {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: rgb(var(--accent));
+    font-size: 1.25rem;
+  }
+  .colophon-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+    line-height: 1.05;
+    font-weight: 400;
+    margin: 0;
+  }
+</style>

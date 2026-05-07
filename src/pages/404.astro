@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Closed for the day" lang="en" noNav>
+  <section class="closed">
+    <span class="closed-mark">N°</span>
+    <h1 class="closed-title">This room of the museum is closed.</h1>
+    <p class="closed-sub">
+      The plate you are looking for has been removed, renamed, or was never installed.
+    </p>
+    <a href="/" class="closed-cta">Return to the entrance →</a>
+  </section>
+</BaseLayout>
+
+<style>
+  .closed {
+    min-block-size: 100vh;
+    display: grid;
+    align-content: center;
+    gap: 1.5rem;
+    padding: 4rem 2rem;
+    max-inline-size: 56rem;
+    margin-inline: auto;
+  }
+
+  .closed-mark {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: rgb(var(--accent));
+    font-size: 1.25rem;
+  }
+
+  .closed-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 1.05;
+    font-weight: 400;
+    margin: 0;
+    max-inline-size: 22ch;
+  }
+
+  .closed-sub {
+    color: rgb(var(--ink-muted));
+    max-inline-size: 50ch;
+    margin: 0;
+  }
+
+  .closed-cta {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: rgb(var(--ink));
+    border-block-end: 1px solid rgb(var(--accent));
+    padding-block-end: 0.25rem;
+    inline-size: fit-content;
+    text-decoration: none;
+  }
+</style>
