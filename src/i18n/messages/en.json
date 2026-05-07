@@ -19,7 +19,7 @@
   "article.editorial": "Editorial commentary",
   "article.translationPending": "This translation has not yet been reviewed by a human editor.",
   "path.banner": "Path: {name} · {current}/{total} · Next →",
-  "footer.attribution": "After Rénald Gesnot, *The Impact of AI on Human Thought*, arXiv:2508.16628 (2025). Adapted with permission.",
+  "footer.attribution": "After Rénald Gesnot, *The Impact of AI on Human Thought*, arXiv:2508.16628 (2025). Permission requested.",
   "footer.visitingHours": "Last updated {date}. Visiting hours: always.",
   "languagePicker.choose": "Choose a language",
   "section.plateCount": "{count} plates"

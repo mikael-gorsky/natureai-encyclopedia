@@ -19,7 +19,7 @@
   "article.editorial": "Редакционный комментарий",
   "article.translationPending": "Этот перевод ещё не отредактирован.",
   "path.banner": "Маршрут: {name} · {current}/{total} · Далее →",
-  "footer.attribution": "По работе Реналя Жено, *Влияние ИИ на человеческое мышление*, arXiv:2508.16628 (2025). Адаптировано с разрешения автора.",
+  "footer.attribution": "По работе Реналя Жено, *Влияние ИИ на человеческое мышление*, arXiv:2508.16628 (2025). Разрешение запрошено.",
   "footer.visitingHours": "Обновлено {date}. Часы работы: всегда.",
   "languagePicker.choose": "Выберите язык",
   "section.plateCount": "Листов: {count}"

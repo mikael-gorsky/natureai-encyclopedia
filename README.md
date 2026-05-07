@@ -64,4 +64,4 @@ The build IS the test suite — broken cross-links, missing translations, or sch
 
 ## Attribution
 
-After Rénald Gesnot, *The Impact of Artificial Intelligence on Human Thought*, arXiv:2508.16628 (2025). Adapted with permission.
+After Rénald Gesnot, *The Impact of Artificial Intelligence on Human Thought*, arXiv:2508.16628 (2025). Permission requested.
