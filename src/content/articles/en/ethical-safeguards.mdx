@@ -1,0 +1,152 @@
+---
+lang: en
+translationKey: D.24
+title: Ethical Safeguards
+section: manipulation
+plate: D.24
+order: 24
+summary: The regulatory and design responses currently on the table — labeling, watermarking, restrictions on political-influence AI, mandatory disclosure, and what each can and cannot achieve.
+keyTerms:
+  - watermarking
+  - mandatory disclosure
+  - EU AI Act
+  - political advertising
+  - C2PA
+seeAlso:
+  - manipulation-of-perceived-reality
+  - recommendations-and-governance-pathways
+  - states-surveillance-and-social-control
+paperSections:
+  - "4.6"
+citations:
+  - id: 86
+    text: "UNESCO Recommendation on the Ethics of Artificial Intelligence (2021)."
+  - id: 87
+    text: "European Union AI Act (2024). Regulation (EU) 2024/1689."
+hero:
+  src: /_media/d-18-hero.svg
+  alt: Section D header — branching tree with six terminal nodes.
+readingTime: 5
+sourceLang: en
+translationStatus: complete
+draft: false
+lastUpdated: 2026-05-08
+---
+
+The manipulation section closes here, with the question that follows from
+the previous six articles: *what can be done?* The answers cluster into four
+families of response, each with its own strengths and characteristic
+failures.
+
+## I. Labeling and disclosure
+
+The most modest response: require AI-generated content to be marked as
+such. Several jurisdictions are partway there:
+
+- The EU AI Act, in force since 2024, requires disclosure for AI-generated
+  audiovisual content in defined categories.[^87]
+- Some U.S. states (California, Texas, others) require disclosure in
+  political advertising specifically.
+- Voluntary content credentials (C2PA) are being adopted by major camera
+  manufacturers and some social platforms.
+
+Labeling does not prevent fabrication; it lets users know they are looking
+at fabrication. The honest assessment of its effects is mixed. Labels work
+well for users who attend to them and who interpret them correctly. They
+work poorly for the users most vulnerable to manipulation — distracted,
+emotionally engaged, encountering content out of context — who are the
+people the labels are meant to protect.
+
+## II. Watermarking and provenance
+
+The technical response: embed signals in AI-generated content that allow
+downstream detection. Two flavors.
+
+**Generative watermarking.** The model embeds an imperceptible pattern in
+its outputs that detectors can recognize. Useful for steady-state volume;
+fragile against determined adversaries (cropping, recompression, simple
+re-rendering breaks most current watermarks).
+
+**Provenance signing.** Cryptographic signatures attached to content at the
+device level (cameras, microphones), allowing genuine content to be proven
+genuine. The C2PA standard is the leading effort. The strength is positive
+proof rather than negative detection; the weakness is adoption — provenance
+only works if most cameras sign, most platforms verify, and most users
+trust the chain.
+
+Both approaches are technically real. Neither is sufficient on its own.
+Combined and supported by infrastructure, they could provide a meaningful
+floor.
+
+## III. Restrictions on high-risk AI applications
+
+The most ambitious response: ban or heavily restrict AI uses in
+politically sensitive domains. The EU AI Act is the leading framework,
+classifying AI systems by risk and imposing graduated requirements:
+
+- **Prohibited.** Social scoring by governments, manipulative AI exploiting
+  vulnerabilities of specific groups, certain real-time biometric
+  identification.
+- **High-risk.** Systems used in education, employment, essential services,
+  law enforcement, migration management. These must meet documentation,
+  transparency, human-oversight, and risk-management requirements.
+- **Limited-risk.** Systems with disclosure obligations (chatbots,
+  deepfakes).
+- **Minimal-risk.** Most other AI applications, with no specific
+  obligations.
+
+The U.S. has not legislated comparably. State-level activity is
+fragmented; federal action is recurrent and limited. The asymmetry between
+the EU's structural approach and the U.S.'s case-by-case approach is one
+of the consequential policy questions of the period.
+
+## IV. Platform-level responsibility
+
+The least-developed response, but perhaps the most important: hold
+platforms responsible for the manipulation that occurs on them. The
+existing regimes were designed for a world in which platforms were
+neutral conduits; the platforms have not been neutral conduits for over a
+decade, and their algorithms actively shape what their users see.
+
+The legal frameworks for platform responsibility — Section 230 in the
+U.S., the Digital Services Act in the EU — are evolving slowly and under
+intense lobbying. The question of *what platforms owe their users* in an
+AI-mediated information environment is not yet settled, and the absence
+of settlement is itself a policy choice.
+
+## What unites the responses
+
+Three observations apply across all four response families.
+
+**None is sufficient alone.** A serious safeguard regime combines
+labeling, watermarking, restrictions, and platform responsibility — and
+even the combination has gaps that adversarial actors can exploit.
+
+**All work better with educated users.** The most beautifully designed
+labeling system fails on a user who does not know what the label means.
+Education is not a substitute for the technical and regulatory
+responses, but it is a necessary complement.
+
+**Implementation lag is the rule.** The technologies move faster than the
+regulations. The 2024 EU AI Act addresses 2022-era capabilities; the 2027
+update will address 2025-era capabilities; the gap is structural, not
+fixable. The realistic posture is to design regulations that *anticipate*
+capability advances rather than tracking them.
+
+## A closing note
+
+The encyclopedia's stance, after Gesnot's §4.6, is consistent with
+Section C's parallel argument: *the responses are necessary but
+insufficient, and the seriousness of the problem is the cumulative effect
+of many small things, not any single dramatic one*. The work of building
+ethical safeguards is the slow work of many institutions working in
+coordination. The work of undermining them is, increasingly, the fast
+work of fewer and fewer actors. The asymmetry favors the second. Closing
+the asymmetry is the substantive policy question.
+
+Section E — Consciousness — picks up the encyclopedia's argument from a
+different angle: not what AI does, but what AI *is*, and how we should
+think about its relationship to mind.
+
+[^86]: UNESCO 2021 Recommendation.
+[^87]: EU AI Act, 2024.

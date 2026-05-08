@@ -1,0 +1,139 @@
+---
+lang: en
+translationKey: E.31
+title: The Black Box Problem
+section: consciousness
+plate: E.31
+order: 31
+summary: Modern AI systems are opaque to their builders. What "explainability" actually means, why it has been hard, and what its absence implies for trust, safety, and the consciousness question.
+keyTerms:
+  - explainable AI
+  - mechanistic interpretability
+  - opacity
+  - alignment
+  - trust
+seeAlso:
+  - cognitive-shadows
+  - the-orchestrating-consciousness-hypothesis
+  - tests-for-machine-consciousness
+paperSections:
+  - "6.1"
+citations:
+  - id: 41
+    text: "Doshi-Velez, F. & Kim, B. (2017). Towards a rigorous science of interpretable machine learning. *arXiv:1702.08608*."
+  - id: 42
+    text: "Olah, C. et al. (2024). Mechanistic interpretability of large language models — Anthropic technical reports."
+hero:
+  src: /_media/e-33-hero.svg
+  alt: Section E (consciousness/black-box) header — spiral of nested concentric circles.
+readingTime: 5
+sourceLang: en
+translationStatus: complete
+draft: false
+lastUpdated: 2026-05-08
+---
+
+The phrase **black box** in AI is a description, not an accusation. Modern
+deep-learning systems compute their outputs through layered transformations
+of internal representations that are not, in any direct sense, readable by
+humans. The operations are mathematically explicit — the weights are right
+there — but the *meaning* of those operations, the abstractions the system
+has learned, the strategies it deploys, are not.
+
+This is the **black box problem**. The encyclopedia's interest in it spans
+three concerns: trust, safety, and the consciousness question. Each is
+served (or threatened) by the same property of the systems.
+
+## What opacity actually means
+
+A neural network with billions of parameters performs millions of
+computations per output. The computations are not laid out as named
+subroutines (parse the question, retrieve the relevant knowledge, structure
+the answer). They are emergent features of the parameters trained against
+the loss function. The parameters were not designed; they were *found* —
+the result of optimization rather than engineering.
+
+Opacity here is not the secrecy of a proprietary algorithm. The labs
+publish their architectures. The opacity is intrinsic: even with full
+access to weights, no human can inspect the system and report what it is
+doing. The mathematical structure is too high-dimensional, the learned
+representations too distributed, the abstractions too implicit.
+
+This is genuinely new. Earlier AI systems — symbolic AI, expert systems —
+were built from explicit rules. A practitioner could read the rules. The
+system's reasoning was, in the relevant sense, transparent. Modern
+deep-learning systems are not built that way and cannot be read that way.
+
+## What's been tried
+
+Explainable AI ("XAI") has been a research program since at least the
+mid-2010s. Several techniques have produced partial results:
+
+**Local explanations** (LIME, SHAP, attention visualization) attempt to
+explain a *single output* by identifying which inputs or internal features
+were most influential. These techniques produce useful intuitions but are
+known to be unreliable; the explanations are sometimes correct, sometimes
+plausible-but-wrong.
+
+**Mechanistic interpretability** — the more ambitious program, pursued
+intensively at Anthropic and a few academic labs — attempts to identify
+the *circuits* inside a network that perform specific computations.
+Significant progress has been made on small models and specific behaviors;
+generalizing to frontier-scale models is hard and incomplete.[^42]
+
+**Causal probing** examines what the network "believes" by intervening on
+its internal states and observing output changes. Useful for specific
+questions, generally not enough to support general claims about model
+behavior.
+
+The field is real, the progress is real, and the gap between current
+interpretability tools and full understanding of frontier systems is also
+real. The gap is unlikely to close on the timescale of capability advances.
+
+## Why this matters
+
+Three reasons.
+
+**Trust.** Users delegate to systems whose reasoning they cannot inspect.
+This is a structural change from prior tools. A calculator's reasoning is
+inspectable in principle (it does arithmetic); an LLM's reasoning is not.
+Trust in opaque systems must be empirical — based on track record — rather
+than analytic. The empirical track record is short and uneven.
+
+**Safety.** A system whose decisions cannot be inspected cannot be
+verified. If a high-stakes deployment makes a wrong decision, the
+investigation cannot ask "why did it decide that?" in any operational sense.
+The remediation can only be retraining, with no guarantee that the same
+class of error will not recur. This is qualitatively different from the
+debugging of explicit software.
+
+**Consciousness.** The question of whether a system is conscious requires,
+on most theories, examining its internal structure. If the structure is
+opaque, the question becomes unanswerable in practice — not because the
+answer is unknowable in principle, but because we lack the tools to look.
+The black box is one of the things separating us from the answers we need
+about machine minds.
+
+## What this connects to
+
+The black box problem is the structural fact behind several of the
+encyclopedia's larger arguments. *Cognitive Shadows* (E.32) takes up the
+related question — when we *think* we understand a system that we do not,
+the misunderstanding is itself a cognitive phenomenon worth studying. *The
+Orchestrating-Consciousness Hypothesis* (E.33) asks what could be hidden
+inside opacity that we have not yet seen. *The Cognitive-Engineer AI*
+(E.34) considers the more empirical version of the same worry: that
+opacity is part of what allows AI to systematically shape human cognition
+without being noticed shaping it.
+
+The encyclopedia's framing, after Gesnot's §6.1: the black box is not a
+temporary engineering problem. It is a structural feature of the kind of
+AI we have chosen to build, and it has consequences. The serious question
+is not whether to fix opacity but whether to *deploy systems whose
+internal workings we cannot inspect at the scales we are deploying them*.
+The current answer is yes. The encyclopedia takes no position on whether
+that is correct, but does take the position that the answer should be made
+deliberately rather than by default.
+
+[^41]: Doshi-Velez & Kim, 2017.
+[^42]: Olah et al. (Anthropic), 2024.

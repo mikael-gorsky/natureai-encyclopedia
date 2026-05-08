@@ -1,0 +1,161 @@
+---
+lang: en
+translationKey: A.03
+title: The Architecture of Human Cognition
+section: foundations
+plate: A.03
+order: 3
+summary: A working sketch — attention, working memory, long-term memory, executive function — of the human cognitive architecture the rest of the encyclopedia repeatedly references.
+keyTerms:
+  - attention
+  - working memory
+  - long-term memory
+  - executive function
+  - schema
+  - dual-process theory
+seeAlso:
+  - artificial-intelligence-a-working-definition
+  - cognitive-load-theory
+  - cognitive-offloading
+paperSections:
+  - "2.2"
+citations:
+  - id: 2
+    text: "Baddeley, A.D. & Hitch, G. (1974). Working memory. *Psychology of Learning and Motivation*, 8, 47–89."
+  - id: 3
+    text: "Kahneman, D. (2011). *Thinking, Fast and Slow*. Farrar, Straus and Giroux."
+hero:
+  src: /_media/a-01-hero.svg
+  alt: Section A header — compass-rose floor plan with six radiating arms.
+readingTime: 5
+sourceLang: en
+translationStatus: complete
+draft: false
+lastUpdated: 2026-05-08
+---
+
+The encyclopedia's subject is what AI does to human thought. The previous
+article gave the working vocabulary for the AI half. This one gives the
+working vocabulary for the human half. The treatment is necessarily quick;
+each component named here is the subject of decades of careful research.
+What follows is the sketch the rest of the encyclopedia leans on.
+
+## Attention
+
+The first thing the cognitive architecture does is *select*. The world
+contains far more information than the mind can process; **attention** is
+the mechanism that determines which fraction gets processed at a given
+moment. Two operating modes: *bottom-up* attention is captured by salient
+stimuli (motion, contrast, novelty); *top-down* attention is directed by
+goals and expectations.
+
+Attention is finite. Multitasking is mostly a fiction at the level of
+conscious processing — what looks like simultaneity is rapid switching with
+real costs in efficiency. The relevance for AI: tools that *capture*
+bottom-up attention (notifications, infinite scroll, autoplay) deplete the
+top-down capacity available for goal-directed work. This is most of why
+attention has become a contested resource in the digital era.
+
+## Working memory
+
+What you are *currently holding in mind*. **Working memory** is small —
+classically, "seven plus or minus two" items, though the modern figure is
+closer to four for unfamiliar items — and short-lived (seconds to minutes
+without rehearsal). Baddeley and Hitch's 1974 model, refined since, divides
+working memory into modules: a phonological loop (verbal), a visuospatial
+sketchpad (visual/spatial), and a central executive that coordinates them
+and connects to long-term memory.[^2]
+
+Working memory is the bottleneck of conscious cognition. Cognitive Load
+Theory (B.06) is built on this fact. AI tools that reduce working-memory
+load — by storing intermediate results, by structuring complex information —
+free capacity for the user's other tasks. AI tools that consume working-
+memory load (interrupting, multitasking, switching contexts) impose costs
+the user often does not notice.
+
+## Long-term memory
+
+What you *know but are not currently thinking about*. Long-term memory has
+several subsystems:
+
+- **Semantic memory:** facts about the world, concepts, vocabulary.
+- **Episodic memory:** specific past experiences, events, episodes from
+  one's own life.
+- **Procedural memory:** how-to knowledge, skills, habits.
+
+These subsystems can be impaired independently (as in different forms of
+amnesia), suggesting they are mechanistically distinct. Long-term memory is
+mostly stable — once consolidated, knowledge persists for years — but
+retrieval depends on cues, context, and recent activity. *Knowing* and
+*recalling* are not the same.
+
+The relevance for AI: *transactive memory* (B.08) and *cognitive offloading*
+(B.07) are framed against this architecture. AI changes the economics of
+when to commit something to long-term memory and when to externalize it.
+The architecture has not changed in those years; the economics have.
+
+## Executive function
+
+The collection of cognitive operations that *direct* the rest. Executive
+function includes goal-setting, planning, inhibition (suppressing
+impulsive responses), task-switching, and self-monitoring. These operations
+are concentrated in prefrontal cortex; they develop slowly through
+childhood and decline early in normal aging.
+
+Executive function is what *uses* the rest of the cognitive architecture
+to accomplish goals. It is the thing AI most directly extends — and most
+directly threatens to substitute. An AI assistant that handles planning,
+task-switching, and self-monitoring is performing executive function on
+the user's behalf. This is the augmentation-vs.-decline tension that A.05
+and B.09 develop in detail.
+
+## Dual-process theory
+
+A useful framework for connecting all of the above: Daniel Kahneman's
+**dual-process theory**, popularized in *Thinking, Fast and Slow*.[^3] The
+mind operates in two modes:
+
+- **System 1**: fast, automatic, effortless, intuitive. Pattern recognition,
+  reading words, basic arithmetic for adults, social-emotional perception.
+- **System 2**: slow, deliberate, effortful, analytical. Multi-step
+  reasoning, hard arithmetic, careful comparison.
+
+The framework is a simplification (the mind is not literally two systems),
+but it captures something real about cognitive economics. System 2 is
+expensive and limited; System 1 is cheap and runs constantly. Most
+cognition is System 1, with System 2 used for what System 1 cannot handle
+alone.
+
+The relevance for AI: most AI use is System 2 cognition (deliberate,
+goal-directed) being handed off to a tool. When AI takes over the System 2
+work, the user is left with mostly System 1 — patterns, intuitions, default
+responses. The encyclopedia's worry about cognitive atrophy (B.09) is
+specifically that the System 2 capabilities atrophy under sustained AI use,
+leaving the user *intellectually System-1-only*.
+
+## Schemas
+
+A final concept worth introducing. **Schemas** are the durable patterns of
+understanding that long-term memory organizes around. A schema for "going to
+a restaurant" includes expected steps, roles, social conventions. Schemas
+are what make complex behavior fluent — once a domain is well-schematized,
+its operations feel effortless.
+
+Schemas are built through *germane processing* (B.06's term). Skipping the
+germane processing — by offloading the schema-building work to AI — leaves
+the schema unbuilt. The next encounter with the same domain feels equally
+foreign. This is the structural mechanism behind cognitive atrophy.
+
+## What this architecture does not include
+
+A reasonable architecture sketch leaves much out: emotion, embodiment,
+social cognition, language, the specific differences between adult and
+developing minds. The encyclopedia mostly does not need these for its
+arguments; where it does, it adds them. What is here is the skeleton.
+
+The next article (A.04) takes up the specific moment in 2024–2025 at which
+the AI half of the encyclopedia's subject met the human half in an
+unprecedented way.
+
+[^2]: Baddeley & Hitch, 1974.
+[^3]: Kahneman, 2011.

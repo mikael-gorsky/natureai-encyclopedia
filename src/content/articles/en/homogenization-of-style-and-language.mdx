@@ -1,0 +1,138 @@
+---
+lang: en
+translationKey: C.13
+title: Homogenization of Style and Language
+section: standardization
+plate: C.13
+order: 13
+summary: The Doshi 2024 study, the classroom literature, and the central case of cognitive standardization — how AI quietly tightens the distribution of how things get written.
+keyTerms:
+  - homogenization
+  - style transfer
+  - register flattening
+  - silent erasure
+  - autocompletion
+seeAlso:
+  - cognitive-standardization
+  - cultural-bias-in-generative-models
+  - filter-bubbles-and-algorithmic-bias
+paperSections:
+  - "3.1"
+citations:
+  - id: 17
+    text: "Doshi, A. et al. (2024). Generative AI homogenizes writing toward Western styles."
+  - id: 18
+    text: "Educational research on standard-English bias in classroom LLM use."
+hero:
+  src: /_media/c-12-hero.svg
+  alt: Section C header — small open circles converging into a single solid disk.
+readingTime: 6
+sourceLang: en
+translationStatus: complete
+draft: false
+lastUpdated: 2026-05-08
+---
+
+Of the many empirical studies the cognitive-standardization literature has
+produced, one is foundational enough to deserve its own article: the 2024 paper
+by Doshi and colleagues. The study, in summary, paired Indian writers with a
+Western-trained text-completion system and watched what happened to their prose
+across a writing session.
+
+The result the paper made famous: AI "**homogenized writing toward Western
+styles by silently erasing non-Western modes of expression**."[^17]
+
+The phrase is worth parsing word by word.
+
+## "Homogenized"
+
+The study's primary finding is statistical: the *distribution* of stylistic
+features across the participants' writing tightened over the course of the
+session. Vocabulary choices, sentence structures, rhetorical patterns —
+features that varied widely at the start of the session became more similar
+by the end. This is homogenization in the precise sense: not that any one
+piece of writing got worse, but that the *space of writing produced* shrank.
+
+## "Toward Western styles"
+
+The direction of the drift was not random. The model's training corpus is
+overwhelmingly English-language and Western, and its preferences, encoded as
+suggestion probabilities, drew the writers' prose toward those patterns. The
+participants were not asked to write more Western; the model offered Western,
+and they accepted.
+
+This is the mechanism that the rest of the standardization section
+generalizes. Where the model's training data has a center of gravity, the
+model's outputs reproduce that center of gravity, and users who accept the
+outputs reproduce it too — without noticing.
+
+## "Silently"
+
+The experimental procedure asked participants whether they had felt the model
+was steering them. Most said no. Most could not, when shown their before-and-
+after texts, identify the specific suggestions they had accepted. The
+homogenization happened below the threshold of conscious choice.
+
+This is the most important word in the paper's headline. Pre-AI propaganda
+operates above the threshold; you know when a politician is trying to persuade
+you. AI-mediated style transfer operates below it. You accept a phrasing
+because it feels slightly clearer than yours did, and the next sentence
+inherits the model's voice instead of yours.
+
+## "Erasing non-Western modes of expression"
+
+The participants did not produce *worse* writing. They produced *less of their
+own* writing. Idioms, syntactic patterns, rhetorical conventions distinctive
+to their cultural and linguistic backgrounds were quietly replaced by the
+model's defaults.
+
+The cost is hard to count in any one piece, and obvious in aggregate. A
+literature, a community of voices, a tradition of expression — these things
+are made of the variety of how things get said. Compress the variety and the
+literature thins. The question is not whether each individual edit was a small
+improvement; the question is what is left when the same kind of small
+improvement has been made, by the same kind of model, ten million times.
+
+## The classroom version
+
+The same pattern is documented in educational settings, with different specifics
+and the same shape. ChatGPT in undergraduate writing classes has been observed
+to push student work toward formal academic English at the expense of dialect,
+register, and idiom — including idioms the students brought from non-academic
+or non-English backgrounds.[^18] Educational researchers describe this as
+*linguistic homogenization* and warn that the standard-English preference
+"may encourage linguistic homogeneity" and erode "the richness and complexity
+of the languages students bring with them."
+
+What is at stake here is more than aesthetic. Language is a vehicle of thought.
+The range of available phrasings in a culture is part of what that culture is
+able to think. As the range narrows, certain thoughts become harder to
+formulate — not impossible, but slower, less fluent, less likely to occur to
+anyone in the first place.
+
+## What can be done
+
+Three responses to homogenization recur in the literature, all imperfect.
+
+**Awareness and noticing.** Train users to recognize the model's stylistic
+default and to push back against it deliberately. This works for trained
+writers; it fails at population scale.
+
+**Diverse model outputs.** Tune models to produce wider stylistic ranges,
+including non-Western and non-academic registers. This is technically feasible
+but requires the labs to *want* to do it, which in turn requires a market
+incentive that does not currently exist.
+
+**Locally trained models.** Fund and develop models on local-language,
+local-cultural training corpora. This is the most expensive response and the
+most durable. It is also the response with the least industry momentum behind
+it.
+
+The encyclopedia's framing here, after Gesnot, is that homogenization is not
+a moral failure of any particular tool. It is an emergent property of
+*letting a small number of large training runs become the substrate of a
+planet's writing*. The choice the field makes about whether to keep doing that
+is the substantive policy question of this section.
+
+[^17]: Doshi et al., 2024. The Indian-participant study.
+[^18]: Educational research on classroom LLM use.

@@ -1,0 +1,142 @@
+---
+lang: en
+translationKey: D.21
+title: Disinformation at Scale
+section: manipulation
+plate: D.21
+order: 21
+summary: Generative AI restructured the economics of fake-news production. One operator can now run an outlet that twenty years ago required a newsroom. What follows from that, and what doesn't.
+keyTerms:
+  - disinformation
+  - fake news
+  - generative AI
+  - content farms
+  - source verification
+seeAlso:
+  - a-taxonomy-of-ai-manipulation
+  - deepfakes
+  - manipulation-of-perceived-reality
+paperSections:
+  - "4.5.1"
+citations:
+  - id: 25
+    text: "Allcott, H. & Gentzkow, M. (2017). Social media and fake news in the 2016 election. *Journal of Economic Perspectives*, 31(2), 211–236."
+  - id: 26
+    text: "Goldstein, J.A. et al. (2023). Generative language models and automated influence operations. *RAND / OpenAI joint report*."
+hero:
+  src: /_media/d-18-hero.svg
+  alt: Section D header — branching tree with six terminal nodes.
+readingTime: 5
+sourceLang: en
+translationStatus: complete
+draft: false
+lastUpdated: 2026-05-08
+---
+
+The economics of disinformation are simple enough to write on a napkin. Costs
+of production must be lower than the political or commercial value extracted.
+Pre-internet, disinformation production required a newsroom-style apparatus:
+writers, editors, distribution. Costs were high; only well-resourced state
+and corporate actors could sustain operations at scale.
+
+The internet halved the costs by removing distribution. Social platforms cut
+them again. Generative AI cuts them once more, by removing the writers.
+
+This is the structural change. Everything else follows from it.
+
+## What the change actually means
+
+A 2023 RAND / OpenAI joint report on automated influence operations modeled
+the new economics in detail.[^26] Their summary: a single operator with
+modern generative tools can produce, at near-zero marginal cost, content
+streams that previously required newsroom investment. The volume is bounded
+only by the operator's distribution capacity, not by their writing capacity.
+
+This means three operational shifts.
+
+**Volume.** Disinformation campaigns can now flood a topic — generating
+hundreds of articles, posts, and replies per day on a narrow topic — at a
+cost that twenty years ago would have produced a single weekly newsletter.
+
+**Tailoring.** Each article can be customized to a specific audience, in
+specific phrasing, on specific platforms, in different languages. The
+generic-to-specific multiplier is roughly model-output ratio.
+
+**Layered laundering.** Fake news is more credible if it appears on multiple
+sources rather than one. Generative tools allow a single operator to seed
+the same story across dozens of plausible-looking outlets, then have it
+"picked up" by social media — creating an apparent ecosystem from a single
+source.
+
+Each shift is operationally significant. Together, they restructure the
+information environment.
+
+## What it doesn't necessarily mean
+
+Important corrective: disinformation has always been less powerful per piece
+than alarmist commentary suggests. Allcott and Gentzkow's 2017 study of fake
+news in the 2016 U.S. election found that the average American adult had
+been exposed to one or a few fake news stories during the campaign, but that
+the persuasive effect of any given story was small.[^25] People are more
+resistant to disinformation than the volume of it suggests.
+
+The corrective matters because the policy response to "AI makes
+disinformation cheap" depends on what the elasticity of harm is. If
+disinformation harm is mostly *in the volume* — saturating attention, drowning
+genuine reporting — then volume reduction is the right target. If it is
+*in the per-piece persuasion* — convincing someone of a specific false
+thing — then volume reduction matters less and per-piece detection matters
+more.
+
+The current literature's best guess: harm is dominantly volume-mediated, with
+specific high-stakes pieces (election-eve deepfakes, viral medical misinfo)
+mattering disproportionately. The right responses target both.
+
+## Volume responses
+
+**Source-level detection.** Identify content farms by behavioral signatures
+(posting cadence, account age clustering, etc.) and demote or remove them.
+Platforms have invested heavily here; the arms race continues.
+
+**Watermarking.** Embed signals in AI-generated content that allow detectors
+to flag it downstream. The labs have started doing this; the marks are
+fragile against determined attack and don't survive screenshots.
+
+**Provenance standards.** Build cryptographic provenance into media at the
+camera level (C2PA, Content Authenticity Initiative). Slow but real
+progress.
+
+## Per-piece responses
+
+**Verification literacy.** The skills needed to evaluate a specific suspect
+piece — find the original source, check the date, reverse-image-search the
+photo, look for corroborating reports. These skills are teachable. They are
+not currently widespread.
+
+**Friction at sharing.** Prompts that interrupt a share with "have you read
+this?" or "this article is from a low-credibility source." Modest but
+measured effect on viral propagation.
+
+**Independent fact-checking.** Underfunded, frequently politically attacked,
+genuinely useful when reaching the audiences who need it. Most of those
+audiences distrust the institutions that fund fact-checking, which is part
+of the larger problem.
+
+## Where this connects
+
+Disinformation at scale is one of the cells in the manipulation taxonomy
+(D.18) and one of the most concretely measurable. *Deepfakes* (D.22)
+takes up the audio-visual variant. *Manipulation of Perceived Reality*
+(D.23) considers the deeper question — what happens to shared reality when
+all of these techniques become routine — and *Ethical Safeguards* (D.24)
+sketches the regulatory and design responses.
+
+The encyclopedia's stance, consistent with the section's larger argument:
+disinformation is not new. AI did not invent it. What AI did was lower the
+cost of production by an order of magnitude, which restructures the
+information environment in ways that institutions designed for higher costs
+are not currently equipped to handle. The work of redesigning those
+institutions is the work the next decade will mostly do.
+
+[^25]: Allcott & Gentzkow, 2017.
+[^26]: Goldstein et al. (RAND / OpenAI), 2023.

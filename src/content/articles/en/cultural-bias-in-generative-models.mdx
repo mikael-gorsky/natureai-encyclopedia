@@ -1,0 +1,137 @@
+---
+lang: en
+translationKey: C.15
+title: Cultural Bias in Generative Models
+section: standardization
+plate: C.15
+order: 15
+summary: WEIRD-AI — why model outputs default to Western, English-language, urban-industrial assumptions, and what one can and cannot do about it.
+keyTerms:
+  - WEIRD
+  - cultural bias
+  - training corpus
+  - default user
+  - centripetal pressure
+seeAlso:
+  - homogenization-of-style-and-language
+  - cognitive-standardization
+  - preserving-cognitive-diversity
+paperSections:
+  - "3.1"
+  - "8.1"
+citations:
+  - id: 79
+    text: "WEIRD-AI synthesis (Western, Educated, Industrialized, Rich, Democratic). See Henrich et al. (2010) for the original psychology critique."
+hero:
+  src: /_media/c-12-hero.svg
+  alt: Section C header — small open circles converging into a single solid disk.
+readingTime: 5
+sourceLang: en
+translationStatus: complete
+draft: false
+lastUpdated: 2026-05-08
+---
+
+Psychology has had its WEIRD problem for a generation. The term, from a 2010
+paper by Henrich, Heine, and Norenzayan, points out that most psychological
+studies are run on Western, Educated, Industrialized, Rich, and Democratic
+subjects — and that the resulting findings travel poorly to populations that
+are none of those things. The acronym has become a shorthand for *cultural
+overgeneralization in research that mistakes its corner of the world for the
+whole*.
+
+The literature on AI training corpora has, in the last few years, adopted the
+same acronym for the same reason. **WEIRD-AI**: large language models trained
+predominantly on English-language text produced by Western, educated,
+industrialized, urban writers, deployed globally, and treated as neutral.
+
+## What the bias looks like
+
+Three layers, each with its own evidence.
+
+**Linguistic.** The training corpus is overwhelmingly English. The next four
+languages are also Indo-European. Most of the world's spoken and written
+languages — Bantu, Quechuan, Dravidian, Mon-Khmer, indigenous languages of
+the Pacific Rim, the Caucasus, the Andes — appear in trace quantities or not
+at all. A model's competence in those languages, when it has any, is shallow
+by comparison; the dominant-language preferences leak into translation,
+summarization, and creative tasks.
+
+**Cultural.** The argument structures, etiquette norms, examples, and
+"reasonable defaults" the model produces reflect the modal Western
+academic-corporate register. Ask a model a hypothetical about a workplace
+dispute and the workplace will be a U.S. office, the dispute will be about
+something U.S. workplaces dispute, and the resolution will assume U.S. legal
+and HR norms. Users from other settings receive useful-looking output that
+quietly imports a context that is not theirs.
+
+**Epistemic.** What the model treats as "reasonable" reflects what the
+training corpus treats as reasonable. Where the corpus is dense in Western
+academic discourse, the model writes confidently; where it is thin, the model
+hallucinates. Some traditions of knowledge — oral, practical, hyperlocal —
+are nearly absent from the corpus and are systematically underweighted in
+outputs. The user does not see this; they see the model declining gently or
+producing plausible-sounding fiction.
+
+## Why the bias is structural
+
+Three reasons the bias is hard to fix.
+
+**Data availability.** The corpus reflects what is digitized, online, and
+machine-readable. That is not a uniform sample of the world's text. It is a
+sample shaped by who has been online longest, with what infrastructure, in
+what languages.
+
+**Optimization signals.** The signals the labs use to evaluate and improve
+models — benchmarks, RLHF feedback, user preference data — come
+predominantly from English-speaking annotators in WEIRD economies. The model
+is being tuned, at every step, by a small slice of the world.
+
+**Economic gravity.** The largest paying customers for frontier models are
+WEIRD-economy enterprises. The features the labs prioritize reflect what
+those customers want. Non-WEIRD users are a long tail; long tails get
+secondary attention.
+
+None of these reasons is permanent, and none is the result of malice. All
+three are durable enough that wishing them away will not help.
+
+## What "centripetal pressure" means
+
+The phrase the encyclopedia uses for the cumulative effect is **centripetal
+pressure**. WEIRD-AI does not eliminate non-Western expression; it pulls
+toward the Western center, gradually, on every interaction, in every language,
+across every task. Non-WEIRD users who use these tools get useful outputs
+*and* a slow nudge toward WEIRD norms. The nudge is small; the user count
+is large; the timeframe is long.
+
+Apply this for a decade and the result is what the cognitive-standardization
+section is about: a global flattening of how things get said, framed by
+preferences encoded in a small number of training runs.
+
+## What can be done
+
+The realistic responses are the same three that recurred in *Cognitive
+Standardization* (C.12), with sharper targets here:
+
+**Locally trained models.** Models trained on local-language, local-cultural
+corpora, by local teams, for local users. Mistral's effort in French, AI21's
+effort in Hebrew, several initiatives in African languages, BigScience's
+multilingual Bloom — all attempts in this direction. None has matched the
+WEIRD-trained frontier models in capability, but the work is meaningful and
+the gap is narrowing.
+
+**Pluralism in evaluation.** Multilingual, multi-cultural benchmark suites
+that measure model quality across populations rather than only on English
+academic prose. The benchmarking community is starting to do this; the
+incentives have not caught up.
+
+**Awareness training.** Teach users that the model has a *default user*, and
+that they may not be it. The defaults are visible if you know to look. Most
+users do not.
+
+The encyclopedia's framing here, after Gesnot, is that cultural bias in
+generative models is the most visible face of cognitive standardization.
+Addressing it does not solve the larger problem on its own, but no
+serious response to the larger problem can leave it unaddressed.
+
+[^79]: WEIRD-AI synthesis. See Henrich et al. (2010) for the original critique in psychology.

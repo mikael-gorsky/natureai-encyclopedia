@@ -1,0 +1,127 @@
+---
+lang: en
+translationKey: B.06
+title: Cognitive Load Theory
+section: cognition
+plate: B.06
+order: 6
+summary: Sweller's framework — three kinds of load on working memory, and what each one tells us about when AI helps and when it gets in the way.
+keyTerms:
+  - intrinsic load
+  - extraneous load
+  - germane load
+  - working memory
+  - schema
+seeAlso:
+  - cognitive-offloading
+  - the-architecture-of-human-cognition
+  - critical-thinking-in-the-age-of-llms
+paperSections:
+  - "2.3.1"
+citations:
+  - id: 12
+    text: "Sweller, J. (1988). Cognitive load during problem solving. *Cognitive Science*, 12(2), 257–285."
+hero:
+  src: /_media/b-07-hero.svg
+  alt: Section B header — abstract diagram of memory transfer between two chambers.
+readingTime: 6
+sourceLang: en
+translationStatus: complete
+draft: false
+lastUpdated: 2026-05-08
+---
+
+Working memory is small. The world is large. The mismatch is the whole engine of
+**cognitive load theory** — John Sweller's framework, developed through the
+1980s, for explaining why some learning tasks succeed and others fail. The
+theory's contribution is to break "load" into three components, each with a
+different relationship to AI assistance.
+
+## Three loads
+
+**Intrinsic load** is the unavoidable difficulty of the material itself. Learning
+abstract algebra carries higher intrinsic load than memorizing a shopping list,
+not because of how either is presented but because of what each demands of the
+mind. Intrinsic load can be sequenced (introduce easier elements first) but not
+reduced; the material is what it is.
+
+**Extraneous load** is the load added by *how* the material is presented.
+Confusing diagrams, irrelevant text, badly-laid-out interfaces, multitasking
+demands. Extraneous load is the wasted attention spent fighting the medium
+rather than understanding the message. It is reducible by design.
+
+**Germane load** is the productive cognitive effort spent building **schemas** —
+the durable patterns of understanding that let future encounters with the
+material feel easy. Germane load is what learning *is*. The goal of any
+well-designed pedagogy is to free up working memory by minimizing extraneous
+load, so that more capacity is available for germane processing of an
+appropriate level of intrinsic load.
+
+That is the theory in three paragraphs. Forty years of educational research has
+elaborated and tested it; the basic shape has held up.
+
+## Where AI fits
+
+Cognitive load theory turns out to be the right framework for asking, precisely,
+what AI does to a learner. The answer comes in two halves.
+
+**AI as extraneous-load reducer.** Most uses of AI in classrooms and workflows
+reduce extraneous load. An adaptive tutor presents material at a level the
+student can engage with; a code-completion model removes the syntactic friction
+between intention and program; a search engine eliminates the cognitive cost of
+remembering where information lives. All of these are wins, on Sweller's terms,
+for the same reason calculator-assisted arithmetic was a win in 1980: the
+machine handles the part of the task that adds load without adding learning.
+
+**AI as germane-load reducer.** This is the trouble. If the AI is doing the
+schema-building work — finding the pattern, formulating the explanation,
+identifying the key relationships — the user is no longer doing it. Working
+memory is freed, but freed *from the very processing the user came to do*. The
+schema does not form. The next encounter with the material is no easier than
+the first. Learning, in the strict sense, did not happen.
+
+The clearest empirical version of this concern comes from the contemporary
+literature on critical thinking under heavy LLM use; the 2024 Microsoft /
+Carnegie Mellon study of professional knowledge workers is the canonical
+reference, and the article *Critical Thinking in the Age of LLMs* (B.10)
+takes it up in detail.
+
+## A cleaner statement
+
+Sweller's framework lets us state the AI-and-learning question precisely:
+
+> AI is helpful to the extent that it reduces extraneous load, and harmful to
+> the extent that it reduces germane load.
+
+The line between the two depends on what the user came to do. A novelist who
+wants help with grammar is offloading extraneous load. A novelist who wants
+help with *finding what the chapter is about* is offloading germane load — the
+work of constructing meaning that is the whole reason to write a chapter. The
+same tool, the same prompt, can be on either side of the line depending on the
+task.
+
+## Designing with the theory
+
+The practical use of cognitive load theory in AI design is to **separate the
+loads explicitly**. A well-designed AI tutor shows its work — not because
+showing-the-work is rhetorically appealing but because the user's reading of the
+work is the germane processing. A poorly-designed AI tutor produces the answer.
+The first leaves more germane load with the user; the second moves it onto the
+machine.
+
+The same logic applies outside education. AI tools that surface their reasoning
+preserve the user's opportunity to do the thinking the tool's existence
+threatens to replace. Tools that bury their reasoning take that opportunity
+away. The theory, applied here, gives us a design principle that is older than
+generative AI and survives it: **let the user keep the thinking they want to
+keep.**
+
+## See also
+
+The theory is one half of Section B's conceptual spine. The other half — the
+concept of cognitive offloading — is taken up directly in [Cognitive
+Offloading](/en/cognition/cognitive-offloading/) (B.07). The two frameworks
+overlap heavily; the difference is mostly in emphasis. Cognitive load theory
+asks *what kind of load is being moved*; cognitive offloading asks *where the
+load is being moved to*. A serious answer to "what does AI do to thinking?"
+needs both.

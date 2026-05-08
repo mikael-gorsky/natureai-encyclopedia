@@ -1,0 +1,152 @@
+---
+lang: en
+translationKey: A.02
+title: "Artificial Intelligence: A Working Definition"
+section: foundations
+plate: A.02
+order: 2
+summary: A working vocabulary — symbolic AI, machine learning, deep learning, generative AI — and what each term does and does not cover.
+keyTerms:
+  - artificial intelligence
+  - symbolic AI
+  - machine learning
+  - deep learning
+  - generative AI
+  - large language model
+seeAlso:
+  - what-this-encyclopedia-is
+  - the-architecture-of-human-cognition
+  - the-2025-moment
+paperSections:
+  - "2.1"
+citations:
+  - id: 1
+    text: "Russell, S. & Norvig, P. (2020). *Artificial Intelligence: A Modern Approach*. Pearson."
+hero:
+  src: /_media/a-01-hero.svg
+  alt: Section A header — compass-rose floor plan with six radiating arms.
+readingTime: 5
+sourceLang: en
+translationStatus: complete
+draft: false
+lastUpdated: 2026-05-08
+---
+
+The phrase **artificial intelligence** does enormous work in contemporary
+discourse. It covers chess engines, recommendation algorithms, self-driving
+cars, image generators, large language models, and a half-dozen capabilities
+that have not been built yet. Without disambiguation, many disagreements about
+"AI" turn out to be disagreements about which of these the parties have in
+mind.
+
+The encyclopedia's working vocabulary, after Russell and Norvig's standard
+textbook treatment.[^1]
+
+## Symbolic AI
+
+The original conception, dominant from the 1950s through roughly the 1990s.
+Symbolic AI builds intelligent behavior from explicit rules: a knowledge base
+of facts and a system of inference rules that operate on them. Expert systems
+in medicine, deductive theorem provers, classical chess engines — these are
+symbolic AI. Their strengths: transparency (the rules are inspectable),
+correctness (the inference is verifiable), and stability (changes are
+predictable). Their weakness: brittleness. They handle exactly what they
+were designed for, and fail abruptly outside it.
+
+Symbolic AI is not dead, but it is not where the energy is in 2025. Most
+production AI systems use it only in specific roles (constraint solvers,
+formal verification) within larger machine-learning pipelines.
+
+## Machine learning
+
+The dominant paradigm since roughly the 1990s. Machine learning systems do
+not have explicit rules. They have a model architecture (a parameterized
+function) and a training procedure that adjusts the parameters based on data,
+to minimize a loss function. The trained system makes predictions or
+generates outputs by applying the learned function to new inputs.
+
+Machine learning is broad. It covers linear regression, decision trees,
+support vector machines, random forests, and the many kinds of neural
+networks. The unifying property is *learning from examples* rather than from
+hand-coded rules. The strengths: it scales with data, it captures patterns
+too complex for hand-coding, and it generalizes from experience. The
+weaknesses: it requires data, it inherits the data's biases, and it is
+typically opaque (you cannot inspect the learned model and report what it has
+learned).
+
+## Deep learning
+
+A subset of machine learning using neural networks with many layers ("deep"
+networks). The architectural ideas are old; what changed in the 2010s was
+the combination of much more data, much more compute, and a few key
+algorithmic advances (ReLU activations, dropout, attention mechanisms,
+transformers) that made deep networks trainable at scale.
+
+Deep learning powers most contemporary high-profile AI: image classification,
+speech recognition, machine translation, the foundation models that produce
+ChatGPT, Claude, Gemini, and so on. When recent commentary refers to "AI
+progress," it usually means deep-learning progress.
+
+## Generative AI
+
+A subcategory within deep learning. Generative AI systems produce *novel
+outputs* of a given type — text, images, audio, video, code — rather than
+merely classifying or predicting. The recent rise of generative AI is mostly
+a story of large language models (LLMs) and diffusion models, two
+architectural families that have, in different ways, learned to produce
+high-quality novel content.
+
+Generative AI is what most lay discussion of "AI" in 2025 actually refers to.
+ChatGPT, Claude, Gemini, Midjourney, DALL-E, Stable Diffusion, GitHub
+Copilot, the deepfake tools — all generative. The encyclopedia's interest is
+disproportionately in this category, because the generative capabilities are
+what produce the cognitive-effect literature this work is built on.
+
+## Large language model
+
+A specific kind of generative AI: a deep neural network trained on a large
+corpus of text to predict the next token given preceding tokens. The training
+objective is simple — token prediction — and the resulting capabilities are
+surprisingly general: question answering, summarization, code generation,
+translation, creative writing, and a long tail of tasks the training did not
+explicitly target.
+
+LLMs are the central technical artifact of the period this encyclopedia
+covers. Their strengths: fluent generation across domains, broad world
+knowledge encoded in weights, capacity for in-context adaptation. Their
+weaknesses: hallucination, lack of grounded reasoning, opacity, and the
+training-corpus biases discussed throughout Section C.
+
+## What "AI" does *not* mean here
+
+A few clarifications worth making.
+
+- **AI is not the same as automation.** Automation existed long before AI;
+  most automation is not AI. The relevant question is whether the system
+  *learns* (machine learning) or *generates* (generative AI). A washing
+  machine is not AI, however convenient it is.
+- **AI is not the same as artificial general intelligence (AGI).** AGI is
+  the hypothetical capacity for cross-domain general reasoning at human
+  level or above. Current AI systems do not have this. Whether they ever
+  will, and on what timescale, is contested.
+- **AI is not the same as the threat model.** The popular phrase "AI" in
+  alarmed contexts often refers to AGI-shaped fears that are not well-
+  matched to current AI systems. The encyclopedia tries to keep these
+  separate.
+
+## A small note on the encyclopedia's usage
+
+When the encyclopedia uses "AI" without qualifier, it usually means
+*contemporary deep-learning systems, especially generative ones, and
+especially large language models*. This is the engine of the cognitive
+effects the work analyzes. Where the discussion needs to be more precise —
+distinguishing recommendation systems from LLMs, say, or generative-image
+models from text models — the article specifies. Where it does not specify,
+the default is the general-purpose generative AI of the 2024–2025 period.
+
+The next article (A.03) gives a parallel working vocabulary for human
+cognition; A.04 takes up what specifically changed at the 2024–2025 moment;
+A.05 introduces the *augmentation vs. decline* tension that organizes the
+rest of the encyclopedia.
+
+[^1]: Russell & Norvig, 2020. The standard reference.
